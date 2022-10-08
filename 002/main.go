@@ -6,5 +6,5 @@ package main
 import "fmt"
 
 func main () {
-	// Here is your code
+	// Here goes your code
 }

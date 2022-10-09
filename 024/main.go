@@ -6,7 +6,7 @@ package main
 import "fmt"
 
 func main () {
-    var x := 5
+    var x int = 5
 	// Your code goes here
 	
 }

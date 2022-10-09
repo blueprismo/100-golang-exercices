@@ -1,27 +1,19 @@
-// Exercise: STRUCT
-// Create a Hotel structure with:
-// numRooms int32
-// streetName string
-// hasPool bool
-
-// Then assign a value to each of those attributes
+// Exercise: MAP
+// Create a map of ints to strings
+// 1 should resolve A
+// 2 should resolve B
+// 3 should resolve C
 
 package main
 
 import "fmt"
 
-type Hotel struct {
-	// Your code goes here
-  numRooms int32
-  streetName string
-  hasPool bool
-}
-
 func main () {
-	var myHotel Hotel
 	// Your code goes here
-  myHotel.numRooms = 30
-  myHotel.streetName = "Thaerstrasse"
-  myHotel.hasPool    = true
-  fmt.Printf("My hotel in %v has %d rooms and it's %t that has a Pool", myHotel.streetName, myHotel.numRooms, myHotel.hasPool)
+	amap := make(map[int32]string)
+	amap[1] = "A"
+	amap[2] = "B"
+	amap[3] = "C"
+
+	fmt.Println(amap[2])
 }

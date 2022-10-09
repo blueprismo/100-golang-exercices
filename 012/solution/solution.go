@@ -1,5 +1,7 @@
-// Exercise: For loops
-// Iterate through the array and add two (+2) to each value
+// Exercise: RANGE
+// Range is used to iterate over data structures
+// use range to print the values and index of the array
+
 
 package main
 

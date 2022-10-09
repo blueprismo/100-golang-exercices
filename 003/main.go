@@ -1,9 +1,7 @@
-// Exercise: Create a program that puts the "Hello World!" string inside a string variable called "helloworld"
+// Exercise: Create a program that puts the "Hello World!" string inside a string variable called "helloWorld"
 
 package main
 
-import "fmt"
-
-func main () {
+func main() {
 	// Here goes your code
 }

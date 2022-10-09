@@ -2,12 +2,12 @@ package main
 
 import "fmt"
 
-func main () {
-	// Creating new variable called helloworld
-	var helloworld string
-	helloworld = "Hello World!"
+func main() {
+	// Creating new variable called helloWorld
+	var helloWorld string
+	helloWorld = "Hello World!"
 	// Print the variable
-	fmt.Println(helloworld)
+	fmt.Println(helloWorld)
 }
 
 // To run the program:

@@ -9,7 +9,7 @@ import "fmt"
 
 func main () {
 	init := 30
-	end := 50
+	end  := 50
 	// Here goes your code
 	
 }

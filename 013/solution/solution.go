@@ -1,6 +1,6 @@
-// Exercise: RANGE
-// Range is used to iterate over data structures
-// use range to print the values and index of the array
+// Exercise: RANGE and Blank identifier
+// use range to print the values of the array
+// use the blank identifier variable to supress the index, DON'T show the index, just the values of the array!
 
 
 package main

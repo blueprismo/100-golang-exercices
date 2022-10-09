@@ -3,8 +3,11 @@
 // - Run the program
 // - Make it an executable
 
+
 package main
 
-func main() {
+import "fmt"
+
+func main () {
 	// Here is your code
 }

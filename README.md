@@ -13,8 +13,8 @@ My main idea is that the exercices are structured like this:
 
 - From 1 to 15: Basic super n00b exercices
 - From 16 to 19: File management
-- From 20 to 50: Intermediate exercices
-- From 51 to 73: Functions
-- From 74 to 100: Go routines and channels
+- From 20 to 31: Intermediate exercices
+- From 32 to : Concurrency
+
 
 And inside of each exercice, it's explanation :) [and solution?]

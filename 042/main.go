@@ -1,30 +1,28 @@
-// Exercise: Channels and timeouts
+// Exercise: Channels - Range
 
-// Create a go routine that uses time.Sleep for 10 seconds, and then add the string "10 seconds passed" into the channel (of type string)
-// in the main program, inside the select block, have 2 cases:
-// 1- The message from the channel
-// 2- A timeout with the "time.After(3 * time.Second)" statement. After timeout happens, print "Timeout!!!!"
+// In this exercise we will use the range keyword to iterate over a buffered (async) channel.
+// Create a buffered channel (type int) of a dimension of 5
+// Put 5 numbers into the channel
+// use the 'range' keyword to iterate over the channel elements and print them
 
+// TIP: but buffered channels need to be closed before iterating over them!!! 
 
 package main
 
 import "fmt"
-import "time"
 
-func timeout(c chan string){
-	for {
-		
-	}
-}
 
 func main () {
-	var c1 chan string = make(chan string)
+	var c chan int = make(chan int,5)
 
-	go timeout(c1)
-	for {
-		select {
-		
-		}
+	c <- 3
+	c <- 6
+	c <- 8
+	c <- 22
+	c <- 1
+	close(c)
+	
+	for element := range c {
+		fmt.Println(element)
 	}
-	fmt.Println("Goroutines finished.") // You shouldn't see this message as the goroutines run forever!
 }

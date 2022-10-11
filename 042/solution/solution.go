@@ -10,5 +10,12 @@ import "fmt"
 
 
 func main () {
-	
+	var c chan string = make(chan string,2)
+
+	c <- "Hello"
+	c <- "how are you?"
+
+	fmt.Println( <- c)
+	close(c)
+	fmt.Println( <- c)
 }

@@ -14,7 +14,8 @@ My main idea is that the exercices are structured like this:
 - From 1 to 15: Basic super n00b exercices
 - From 16 to 19: File management
 - From 20 to 31: Intermediate exercices
-- From 32 to : Concurrency
+- From 32 to 44: Concurrency
+- From 45 to  : Time
 
 
 And inside of each exercice, it's explanation :) [and solution?]

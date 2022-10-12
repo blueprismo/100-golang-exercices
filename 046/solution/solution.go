@@ -2,7 +2,7 @@
 
 // import the "time" package
 // create a variable named "current" that has the current time in UTC
-// Print the Date and time with the format [YYYY Mo dd] and [HH:MM:SS]
+// Print the Date and time with the format [YYYY Mo dd], then with [YYYY/Mo/dd] and finally [HH:MM:SS]
 
 package main
 
@@ -14,6 +14,7 @@ import (
 func main() {
   current := time.Now().UTC()
   fmt.Println("Date: " + current.Format("2006 Jan 02")) //(*)
+  fmt.Println("Date: " + current.Format("2006/Jan/02")) //(*)
   fmt.Println("Time: " + current.Format("03:04:05")) // (*)
 }
 

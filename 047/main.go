@@ -14,8 +14,7 @@ import (
 func main() {
   
   fmt.Println("Date: " + current.Format("2006 Jan 02")) //(*)
-  fmt.Println("Time: " + current.Format()) // (*)
-  fmt.Println("Date: " + current.Format()) //(*)
+  fmt.Println("Time: " + current.Format("03:04:05")) // (*)
 }
 
 // (*)

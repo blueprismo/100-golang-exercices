@@ -15,7 +15,8 @@ My main idea is that the exercices are structured like this:
 - From 16 to 19: File management
 - From 20 to 31: Intermediate exercices
 - From 32 to 44: Concurrency
-- From 45 to  : Time
+- From 45 to 48 : Time
+- From 49 to : JSON
 
 
 And inside of each exercice, it's explanation :) [and solution?]

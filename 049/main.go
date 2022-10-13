@@ -1,20 +1,22 @@
-// Exercise: Time
+// Exercise: JSON!!
 
-// We will have 2 time variables
-// You will have to: 
-// 1- Get the difference with the Sub() function
-// 2- See if they are equal with the Equal() funciton
-// 3- See what comes after the other with the After() function
+// Create a struct "Human", with 2 string attributes: Name and Description
 
+// Find out about the unmarshal function (json decode), and decode the humanJson object into a variable of type Human called "human"
 package main
 
 import (
     "fmt"
-    "time"
+    "encoding/json"
 )
 
-func main() {
-  start := time.Date(2020, 2, 1, 3, 0, 0, 0, time.UTC)
-  end   := time.Date(2021, 2, 1, 12, 0, 0, 0, time.UTC)
+type Human struct {
+  
+}
 
+func main() {
+  humanJson := `{"name": "Rick","description": "has a grandson called Morty"}`
+  
+
+  fmt.Println(human.Name + " is old and " + human.Description)
 }

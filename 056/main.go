@@ -22,9 +22,11 @@ func main() {
     reader := bufio.NewReader(os.Stdin)
     fmt.Print("Text to send: ")
     text, _ := reader.ReadString('\n')
-    // send to server
+
+    // send to server (use Fprintf for this, more info at: ) 
     fmt.Fprintf(conn, text + "\n")
-    // wait for reply
+
+    // wait for reply from server (must accept the connection)
     message, _ := bufio.NewReader(conn).ReadString('\n')
     fmt.Print("Message from server: "+message)
   }

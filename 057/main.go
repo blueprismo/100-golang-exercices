@@ -1,33 +1,19 @@
-// Exercise: Socket implementation (client side)
+// Exercise: Set up a simple HTTP Server
 
-// We will use the net library, and create a really basic client
-// Please read the docs before anything!
-// https://pkg.go.dev/net
+// We will use the net/http library
+// https://pkg.go.dev/net/http
+
+// There are multiple ways of creating a http server in GO
+// In this task, we are going to crete a http in your preferred way, so run free with the documentation :)
+// I will provide the simplest solution, the only requirement for this exercise is that the server must 
+// reply with a "Hello web World" response.
 
 package main
 
-import "net"
-import "fmt"
-import "bufio"
-import "os"
+import "net/http"
+import "io"
+import "log"
 
 func main() {
-
-  // connect to server (use the Dial function!)
-  conn, _ := 
-
-  // Infinite loop again 
-  for { 
-    // Sending...
-    reader := bufio.NewReader(os.Stdin)
-    fmt.Print("Text to send: ")
-    // in a variable called "text, use the ReadString function from the reader variable, with the newline character as it's argument"
-    
-
-    // send to server (use Fprintf for this!) 
-    
-    // wait for reply from server (must accept the connection)
-    message, _ := bufio.NewReader(conn).ReadString('\n')
-    fmt.Print("Message from server: "+message)
-  }
+   
 }

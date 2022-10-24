@@ -1,33 +1,33 @@
-// Exercise: Socket implementation (server side)
+// Exercise: Socket implementation (client side)
 
-// We will use the net library, and create a really basic server
+// We will use the net library, and create a really basic client
 // Please read the docs before anything!
 // https://pkg.go.dev/net
-// When finished, try to connect with netcat (or telnet, or a client) and see if it works
+
 package main
 
-import (
-    "fmt"
-    "net"
-    "bufio"
-)
+import "net"
+import "fmt"
+import "bufio"
+import "os"
 
 func main() {
-  fmt.Println("Start server")
-// Now make the server listen at the 8000 port (tcp protocol)
-  ln , err := net.Listen("tcp", ":8000")
-  if err != nil {
-    fmt.Println("Some error has happened!")
-  }
 
-  // Accept the connection
-  conn, err := ln.Accept()
+  // connect to server (use the Dial function!)
+  conn, _ := net.Dial("tcp", "localhost:8000")
 
-  // Run a loop forever (unless interrupted by signal)
-  for {
-    // Recive a message with the bufio.NewReader(connection).ReadString function
+  // Infinite loop again 
+  for { 
+    // what to send?
+    reader := bufio.NewReader(os.Stdin)
+    fmt.Print("Text to send: ")
+    text, _ := reader.ReadString('\n')
+
+    // send to server (use Fprintf for this!) 
+    fmt.Fprintf(conn, text + "\n")
+
+    // wait for reply from server (must accept the connection)
     message, _ := bufio.NewReader(conn).ReadString('\n')
-    fmt.Print("Message Received:", string(message))
+    fmt.Print("Message from server: "+message)
   }
-  
 }

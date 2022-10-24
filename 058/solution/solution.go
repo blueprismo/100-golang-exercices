@@ -3,8 +3,10 @@
 // We will use the net/http library
 // https://pkg.go.dev/net/http
 
-// There are multiple ways of creating a http server in GO
-// In this task, we are going to crete a http in your preferred way, so run free with the documentation :)
+// Like with ExpressJS, we will make a web server, and the web server will serve the "/bar" route
+// and the response should be "Hello, /var". BUT don't hardcode the URI!
+// Changing the http.HandleFunc 1st variable (the URI), the message served should also change.
+// Example: If I set my webserver at /newpath, my response will be "Hello, /newpath"
 
 package main
 

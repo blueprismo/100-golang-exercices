@@ -1,33 +1,25 @@
-// Exercise: Socket implementation (client side)
+// Exercise: Set up a simple HTTP Server
 
-// We will use the net library, and create a really basic client
-// Please read the docs before anything!
-// https://pkg.go.dev/net
+// We will use the net/http library
+// https://pkg.go.dev/net/http
+
+// Like with ExpressJS, we will make a web server, and the web server will serve the "/bar" route
+// and the response should be "Hello, /var". BUT don't hardcode the URI!
+// Changing the http.HandleFunc 1st variable (the URI), the message served should also change.
+// Example: If I set my webserver at /newpath, my response will be "Hello, /newpath"
 
 package main
 
-import "net"
+import "net/http"
 import "fmt"
-import "bufio"
-import "os"
+import "html"
+import "log"
 
 func main() {
 
-  // connect to server (use the Dial function!)
-  conn, _ := 
+  http.HandleFunc(/**/ , func(w http.ResponseWriter, r *http.Request) {
+	  
+  })
 
-  // Infinite loop again 
-  for { 
-    // Sending...
-    reader := bufio.NewReader(os.Stdin)
-    fmt.Print("Text to send: ")
-    // in a variable called "text, use the ReadString function from the reader variable, with the newline character as it's argument"
-    
-
-    // send to server (use Fprintf for this!) 
-    
-    // wait for reply from server (must accept the connection)
-    message, _ := bufio.NewReader(conn).ReadString('\n')
-    fmt.Print("Message from server: "+message)
-  }
+  log.Fatal(http.ListenAndServe(":8080", nil))
 }

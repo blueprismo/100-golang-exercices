@@ -17,6 +17,8 @@ My main idea is that the exercices are structured like this:
 - From 32 to 44: Concurrency
 - From 45 to 48 : Time
 - From 49 to 53 : JSON
+- From 54 to 62 : HTTP
+- From 63 to :
 
 
 And inside of each exercice, it's explanation :) [and solution?]

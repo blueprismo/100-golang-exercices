@@ -19,7 +19,8 @@ My main idea is that the exercices are structured like this:
 - From 49 to 53 : JSON
 - From 54 to 67 : HTTP & APIs
 - From 68 to 72 : Testing
-- From 72 to : Heimdall
+- From 72 to : Heimdall - Hystrix circuit breaker
+
 
 
 And inside of each exercice, it's explanation :) and solution

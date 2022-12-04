@@ -1,32 +1,26 @@
 package main
 
-// In this exercise we will create a microservice that counts the number of requests.
-// Tip: This exercise is ressemblant to the one in exercise 62, but better! (And improved!)
+// In this exercise we will Stablish a connection with mongoDB - Atlas
+// MongoDB is a non relational kind of db, and it's saas has a free tier. Find out more here.
+// https://www.mongodb.com/docs/atlas/tutorial/deploy-free-tier-cluster/
+// You can also use a docker container locally to connect, use whatever option suits you best.
+
+// 1- You need to install these two libraries through the following commands, one is for the mongo driver and the other for a dotenv file
+// go get go.mongodb.org/mongo-driver/mongo
+// go get github.com/joho/godotenv
+// 2- Once installed, create a file named ".env" containing your 
 import (
+	"context"
+	"encoding/json"
 	"fmt"
 	"log"
-	"net/http"
-	"sync"
+	"os"
+	"github.com/joho/godotenv"
+	"go.mongodb.org/mongo-driver/bson"
+	"go.mongodb.org/mongo-driver/mongo"
+	"go.mongodb.org/mongo-driver/mongo/options"
 )
 
-// For simplicity we will obviate the Mutex and the defer in the next function. We will get to that later
-// Create a countHandler struct with a variable n type int.
-type countHandler struct {
-	mu sync.Mutex // guards n
-	n  int
-}
+func main (){
 
-// Create the http handler function for creating a counter (tip: take a look at exercise 62!)
-func (h *countHandler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
-  log.Println("received the", h.n + 1," request")
-	h.mu.Lock()
-	defer h.mu.Unlock()
-	h.n++
-	fmt.Fprintf(w, "count is %d\n", h.n)
-}
-
-// We will use the default serve mux here
-func main() {
-	http.Handle("/count", new(countHandler))
-	log.Fatal(http.ListenAndServe(":8080", nil))
 }

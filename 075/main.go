@@ -8,31 +8,25 @@ package main
 // 1- You need to install these two libraries through the following commands, one is for the mongo driver and the other for a dotenv file
 // go get go.mongodb.org/mongo-driver/mongo
 // go get github.com/joho/godotenv
-// 2- Once installed, create a file named ".env" containing your 
+// 2- Once installed, create a file named ".env" containing your connection string. Use that env file to connect to the db.
 import (
 	"context"
-	//"encoding/json"
-	//"fmt"
 	"log"
 	"os"
 	"github.com/joho/godotenv"
-	//"go.mongodb.org/mongo-driver/bson"
 	"go.mongodb.org/mongo-driver/mongo"
 	"go.mongodb.org/mongo-driver/mongo/options"
 )
 
 func main (){
-	err := godotenv.Load()
+	// Load the godotenv library
+	err := 
+
 	if err != nil {
 		log.Fatal("Could not load .env file")
 	}
 
-	// Create a variable named "uri" containing your MONGODB_URI string connection.
-	uri := 
-  
-	if uri == "" {
-		log.Fatal("You must set your 'MONGODB_URI' environmental variable. See\n\t https://www.mongodb.com/docs/drivers/go/current/usage-examples/#environment-variable")
-	}
+	// Thanks to the dotenv file, you can get the MONGODB_URI from the environment!
 	client, err := mongo.Connect(context.TODO(), options.Client().ApplyURI(uri))
 	if err != nil {
 		panic(err)

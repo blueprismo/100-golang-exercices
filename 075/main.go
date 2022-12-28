@@ -9,6 +9,7 @@ package main
 // go get go.mongodb.org/mongo-driver/mongo
 // go get github.com/joho/godotenv
 // 2- Once installed, create a file named ".env" containing your connection string. Use that env file to connect to the db.
+//    This .env file, will have one variable called "MONGODB_URI=" with the value of your mongodb connection string.
 import (
 	"context"
 	"log"

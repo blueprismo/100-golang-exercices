@@ -27,6 +27,12 @@ func main (){
 		log.Fatal("Could not load .env file")
 	}
 
+	// Create a variable named "uri" containing your MONGODB_URI string connection.
+	uri := os.Getenv()
+	if uri == "" {
+		log.Fatal("You must set your 'MONGODB_URI' environmental variable. See\n\t https://www.mongodb.com/docs/drivers/go/current/usage-examples/#environment-variable")
+	}
+
 	// Thanks to the dotenv file, you can get the MONGODB_URI from the environment!
 	client, err := mongo.Connect(context.TODO(), options.Client().ApplyURI(uri))
 	if err != nil {

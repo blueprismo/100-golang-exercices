@@ -5,7 +5,7 @@ import (
 	"log"
 	"os"
 	"github.com/joho/godotenv"
-	"go.mongodb.org/mongo-driver/bson"
+//	"go.mongodb.org/mongo-driver/bson"
 	"go.mongodb.org/mongo-driver/mongo"
 	"go.mongodb.org/mongo-driver/mongo/options"
 )
@@ -31,13 +31,18 @@ func main (){
 			panic(err)
 		}
 	}()
-
+	
 	// Create a collection called "users" into your Database.
-	// To do so, use the client.Database() call, and call the .Collection() method to create a collection if it doesn't exist!
-	// We will store the returned value into a variable named "usersCollection"
-	client.Database("TestCluster").CreateCollection(context.TODO(), "users", options.CreateCollection().SetMaxDocuments(100000))
-	usersCollection := client.Database("TestCluster").Collection("users")
+	// To do so, use the client.Database() call, and call the .CreateCollection() method to create a collection if it doesn't exist!
+	// The third and subsequent arguemnts (4th,5th,6th... will be options) 
+	// We will set the options SetCapped to true and SetSizeInBytes to 1048576.
+	// for better readness, we will declare a opts object as follows:
+	opts := options.CreateCollection()
+	// And here create the database collection below this line with the context.TODO() as first argument, the collection name as the second, and the 2 options as the third and fourth
+
+	
 	// Here, we will return the name of the collection, to check everything went allright :)
+	usersCollection := client.Database("TestCluster").Collection("users")
 	log.Println(usersCollection.Name())
 	log.Println("You got connected!")
 	

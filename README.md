@@ -11,16 +11,25 @@ I assume you have go installed and have taken a quick grap about how GO works :)
 
 My main idea is that the exercices are structured like this:
 
-- From 1 to 15: Basic exercices
-- From 16 to 19: File management
-- From 20 to 31: Intermediate exercices
-- From 32 to 44: Concurrency
+- From 1 to 15  : Basic exercices
+- From 16 to 19 : File management
+- From 20 to 31 : Intermediate exercices
+- From 32 to 44 : Concurrency
 - From 45 to 48 : Time
 - From 49 to 53 : JSON
 - From 54 to 67 : HTTP & APIs
-- From 68 to 72 : Testing
-- From 72 to : Heimdall - Hystrix circuit breaker
+- From 68 to 74 : Testing & misc
+- From 75 to    : Database (non-relational(mongo))
 
 
 
-And inside of each exercice, it's explanation :) and solution
+And inside of each exercice, it's explanation :) and solution inside the `solution` folder
+```sh
+├── n-th_exercise            #<- exercise number
+│    ├── main.go
+│    ├── [.env]
+│    └── solution            #<- solution folder
+│       └── solution.go      
+├── go.mod
+└── go.sum
+```

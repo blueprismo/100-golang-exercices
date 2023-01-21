@@ -1,3 +1,3 @@
 go.mod
 go.sum
-*.env
+**.env**

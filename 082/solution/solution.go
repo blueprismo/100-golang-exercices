@@ -8,6 +8,7 @@ import (
 	"context"
 	"log"
 	"os"
+	"net/http"
 	"github.com/joho/godotenv"
 	"go.mongodb.org/mongo-driver/bson"
 	//"go.mongodb.org/mongo-driver/bson/primitive"
@@ -21,6 +22,11 @@ type User struct {
 	Name string `json:"name"       bson:"name"`
 }
 
+type UserResponse struct {
+    Status  int        `json:"status"`
+    Message string     `json:"message"`
+    Data    *fiber.Map `json:"data"`
+}
 
 func initDB() *mongo.Database {
 	// MongoDB connection setup
@@ -46,45 +52,29 @@ func initDB() *mongo.Database {
 
 func getUser(c *fiber.Ctx) error {
 	// Connect to the DB
-	db := initDB()
-	// Insert the user into the MongoDB collection
-	collection := db.Collection("users")
+	collection := initDB().Collection("users")
 	log.Println(collection.Name())
 	// Get user by name, first extract the name from the URI:
-	//name, err := primitive.ObjectIDFromHex(c.Params("name"))
 	name := c.Params("name")
-    /*if err != nil {
-        c.Status(400).SendString(err.Error())
-        return err
-    }*/
 
-	//
+	// what do we have 
+	// And now let's find one user named "John" in the database, let's create a search filter with has the "name" = "John"
+	filter := bson.D{{"name",name}}
+	// Let's create a return variable of type bson.D
 	var user User
-    err := collection.FindOne(context.Background(), bson.M{"name": name}).Decode(&user)
-    if err != nil {
-        c.Status(404).SendString(err.Error())
-		return err
-        
-    }
-    return c.JSON(user)
-	//var user User
-	//err = collection.FindOne(context.TODO(),c.Params("name"))
-	/*err := collection.FindOne(context.TODO(), bson.M{"name": bson.ObjectIdHex(c.Params("name"))}).Decode(&user)
+	// Let's use the FindOne() method and reference the return value in the result variable created above
+	err := collection.FindOne(context.TODO(), filter).Decode(&user)
 	if err != nil {
-		log.Fatal(err)
-	}
-	return user*/
+        return c.Status(500).JSON(UserResponse{Status: 500, Message: "error, not found or unable to find", Data: &fiber.Map{"data": err.Error()}})
+    }
+	
+	return c.Status(http.StatusOK).JSON(UserResponse{Status: 200, Message: "success", Data: &fiber.Map{"data": user}})
 }
 
-// Create a simple function to return some string to the fiber context
-// this function signature will be [func helloWorld(c *fiber.Ctx)]
-// inside you will call the Send() method in that context, with the string "Hello World!" as it's only argument.
 func helloWorld(c *fiber.Ctx) error {
 	return c.SendString("Hello, World!")
 }
 
-// Create a function setUP routes with a signature like func setupRoutes(a *fiber.App)
-// inside this function use a.GET to the root path, and the helloWorld function we created above
 func setupRoutes(app *fiber.App) {
 	app.Get("/", helloWorld)
 	// We will allocate the /user/:name uri, and we will pass the name as queryParam (/user/john)
@@ -93,11 +83,7 @@ func setupRoutes(app *fiber.App) {
 
 // main 
 func main (){
-	// Fiber 
-	// Create a new App with fiber.New()
 	app := fiber.New()
-	//db := initDB()
-	//users_collection := db.Collection("users")
 	// Add the routes to the app we created above (right now we only have 1 route)
 	setupRoutes(app)
 	// Listen to port 3000

@@ -8,20 +8,28 @@ import (
 	"context"
 	"log"
 	"os"
+	"encoding/json"
 	"net/http"
 	"github.com/joho/godotenv"
 	"go.mongodb.org/mongo-driver/bson"
-	//"go.mongodb.org/mongo-driver/bson/primitive"
 	"go.mongodb.org/mongo-driver/mongo"
 	"go.mongodb.org/mongo-driver/mongo/options"
 	"github.com/gofiber/fiber/v2"
 )
 
+// IMPORTANT FOR THIS EXERCISE, READ ALL THE FILE BEFORE BEGINNING!!! 
+// Our goal is to create a new endpoint (app.Get(/users/:id)), so when we try to find /users/John we find one, but when we try to find /users/john it doesn't
+// (case sensitivity for this case :) )
+
 type User struct {
-	Age  int    `json:"age,string" bson:"age"`
-	Name string `json:"name"       bson:"name"`
+	Age  int    `bson:"age"`
+	Name string `bson:"name"`
 }
 
+// Create a UserResponse type, it will have 3 elements:
+// 1- Status, integer
+// 2- Message, string
+// 3- Data, a *fiber.Map element containing our actual payload. *fiber.Map is a shortcut for map[string]interface{}, useful for JSON returns.
 type UserResponse struct {
     Status  int        `json:"status"`
     Message string     `json:"message"`
@@ -42,32 +50,37 @@ func initDB() *mongo.Database {
 	if err != nil {
 		panic(err)
 	}
-	defer func() {
-		if err := client.Disconnect(context.TODO()); err != nil {
-			panic(err)
-		}
-	}()
 	return client.Database("TestCluster")
 }
 
 func getUser(c *fiber.Ctx) error {
 	// Connect to the DB
 	collection := initDB().Collection("users")
-	log.Println(collection.Name())
+
 	// Get user by name, first extract the name from the URI:
 	name := c.Params("name")
-
-	// what do we have 
-	// And now let's find one user named "John" in the database, let's create a search filter with has the "name" = "John"
+	
+	// And now let's find one user named "John" in the database, let's create a search filter with has the "name" = parameter we set before
 	filter := bson.D{{"name",name}}
-	// Let's create a return variable of type bson.D
+	// Let's create a user variable of type User to reference it with the FindOne function later
 	var user User
-	// Let's use the FindOne() method and reference the return value in the result variable created above
+	// Let's use the FindOne() function and reference the return value in the result variable created above!
 	err := collection.FindOne(context.TODO(), filter).Decode(&user)
+	// Catch the error, if the above query was unsuccesful, return a HTTP500 status message with the err.Error() as the data payload, and "error" as message.
 	if err != nil {
-        return c.Status(500).JSON(UserResponse{Status: 500, Message: "error, not found or unable to find", Data: &fiber.Map{"data": err.Error()}})
+        return c.Status(500).JSON(UserResponse{Status: 500, Message: "error", Data: &fiber.Map{"data": err.Error()}})
     }
 	
+	/*
+	// DEBUGGING
+	output, err := json.MarshalIndent(user, "", "    ")
+	if err != nil {
+		panic(err)
+	}
+	log.Printf("%s\n", output)
+	*/
+
+	// if everything went alright, return the c.Status(200).JSON(UserResponse{}) with the userresponse status as 200, message as success and the data our user!
 	return c.Status(http.StatusOK).JSON(UserResponse{Status: 200, Message: "success", Data: &fiber.Map{"data": user}})
 }
 

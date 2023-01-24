@@ -19,7 +19,7 @@ My main idea is that the exercices are structured like this:
 - From 49 to 53 : JSON
 - From 54 to 67 : HTTP & APIs
 - From 68 to 74 : Testing & misc
-- From 75 to    : Database (non-relational(mongo))
+- From 75 to 85 : Database (non-relational(mongo)) + CRUD API with Fiber
 
 
 

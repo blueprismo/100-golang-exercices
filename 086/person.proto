@@ -1,5 +1,0 @@
-syntax="proto3";
-
-package main;
-
-// create the message Person here!

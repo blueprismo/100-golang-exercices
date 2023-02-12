@@ -20,11 +20,8 @@ My main idea is that the exercices are structured like this:
 - From 54 to 61  : Context
 - From 62 to 68  : Interfaces
 - From 69 to 82  : HTTP & APIs
-- From 83 to 
-- From 68 to 74  : Testing & misc
-- From 75 to 85  : Database (non-relational(mongo)) + CRUD API with Fiber
-- From 86 to 93  : Context
-- From 94 to 100 : Interfaces
+- From 83 to 89  : Testing & misc
+- From 90 to 100 : Database (non-relational(mongo)) + CRUD API with Fiber
 
 
 And inside of each exercice, it's explanation :) and solution inside the `solution` folder

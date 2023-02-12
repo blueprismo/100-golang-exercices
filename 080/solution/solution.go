@@ -1,69 +1,63 @@
-// Aggregations
-// In this exercises, we are going to learn about BSON, a binary serialization format (like JSON) which is used to marshall and unmarshall data ad make remote calls in mongoDB
-// First, we need to import the `go.mongodb.org/mongo-driver/bson` library.
+// Exercise: Create an API with GIN framework - POST request
 package main
 
 import (
-	"context"
-	"log"
-	"os"
-	"github.com/joho/godotenv"
-	"go.mongodb.org/mongo-driver/bson"
-	"go.mongodb.org/mongo-driver/mongo"
-	"go.mongodb.org/mongo-driver/mongo/options"
+  "github.com/gin-gonic/gin"
+  "net/http"
 )
 
-type User struct{
-	Name string
-	Age  int
+// album represents data about a record album.
+type album struct {
+  ID     string  `json:"id"`
+  Title  string  `json:"title"`
+  Artist string  `json:"artist"`
+  Price  float64 `json:"price"`
 }
 
-func main (){
-	err := godotenv.Load()
-	if err != nil {
-		log.Fatal("Could not load .env file")
-	}
-	uri := os.Getenv("MONGODB_URI")
-	if uri == "" {
-		log.Fatal("You must set your 'MONGODB_URI' environmental variable. See\n\t https://www.mongodb.com/docs/drivers/go/current/usage-examples/#environment-variable")
-	}
-	client, err := mongo.Connect(context.TODO(), options.Client().ApplyURI(uri))
-	if err != nil {
-		panic(err)
-	}
-	defer func() {
-		if err := client.Disconnect(context.TODO()); err != nil {
-			panic(err)
-		}
-	}()
-	usersCollection := client.Database("TestCluster").Collection("users")
-	log.Println(usersCollection.Name())
-	
-	// We are going to create a group stage, this will have the result for the average age of all our users.
-	// Create a variable named groupStage with the first element as "average_price" and the second element a bson.D variable containing "$avg" expression and "$age"
-	groupStage := bson.D{
-						{"$group", bson.D{
-							{"_id", "$name"},
-							{"average_price", bson.D{{"$avg", "$age"}}},
-							{"numTimes", bson.D{{"$sum", 1}}},
-						}},
-	}
-	
-	// use the Aggregate() function with the second argument as mongo.Pipeline{groupStage}:
-	cursor, err := usersCollection.Aggregate(context.TODO(), mongo.Pipeline{groupStage})
-	if err != nil {
-		panic(err)
-	}
-	
-	// display the results
-	var results []bson.M
-	if err = cursor.All(context.TODO(), &results); err != nil {
-	    panic(err)
-	}
+// albums slice to seed record album data.
+var albums = []album{
+  {ID: "1", Title: "Blue Train", Artist: "John Coltrane", Price: 56.99},
+  {ID: "2", Title: "Jeru", Artist: "Gerry Mulligan", Price: 17.99},
+  {ID: "3", Title: "Sarah Vaughan and Clifford Brown", Artist: "Sarah Vaughan", Price: 39.99},
+}
 
-	for _, result := range results {
-	    log.Printf("Average age of users named like %v user options: %v \n", result["_id"], result["average_price"])
-	    log.Printf("Number of %v tea options: %v \n\n", result["_id"], result["numTimes"])
-	}
-	
+// Then, let's create a handler function ((a normal function, which then we will wrap :) ))
+// name it getAlbums, and it's only argument named 'c' will be a pointer type of gin.Context.
+func getAlbums(c *gin.Context) {
+  // use the IndentedJSON function with the gin context, and pass it an http status ok, and the albums array
+  // more info: https://pkg.go.dev/github.com/gin-gonic/gin#Context.IndentedJSON
+  c.IndentedJSON(http.StatusOK, albums)
+}
+
+func postAlbums( c *gin.Context){
+  // Create a new album
+  var newAlbum album
+
+  // Call BindJSON to bind the received JSON to
+  // newAlbum.
+  if err := c.BindJSON(&newAlbum); err != nil {
+    return
+  }
+
+  // Append the newAlbum to the albums slice
+  albums = append(albums,newAlbum)
+
+  // Indicate the creation status for the new album
+  c.IndentedJSON(http.StatusCreated, newAlbum)
+}
+
+func main() {  
+  // we will registrer a handler (or router) with gin.Default()
+  router := gin.Default()
+  
+  // here access the router .GET http verb for the request. 
+  // https://pkg.go.dev/github.com/gin-gonic/gin#readme-using-get-post-put-patch-delete-and-options
+  // the first argument will be the URI (or pattern) and the second one the getAlbums handler function we defined before
+  router.GET("/albums", getAlbums)
+
+  // Add the POST request to the '/albums' path
+  router.POST("/albums", postAlbums)
+
+  // run the server with the Run() function
+  router.Run("localhost:8080")
 }

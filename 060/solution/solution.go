@@ -1,34 +1,66 @@
-// Exercise: Set up a simple HTTP Server
+// Contexts - Canceling a context (withDeadline)
 package main
 
-import "net/http"
-import "log"
+import (
+	"context" 
+	"fmt"
+	"time"
+)
 
-// In this exercise we will register the handler function for a given pattern!
-// We will use this HandleFunc BEWARE IT'S NOT THE SAME THAN HandlerFunc!!!!!
-// We will register these patterns (uri) in the defaultServerMux, we will talk about it later
-
-// Create a function named handler_1 that will write "Hello from Handlefunc #1"
-func handler_1(w http.ResponseWriter, r *http.Request){
-  w.Write([]byte("Hello from Handlefunc #1"))
+// Modify the doSomething function
+func doSomething(ctx context.Context) {
+	// Deadline of 1,5 seconds
+	deadline := time.Now().Add(1500 * time.Millisecond)
+	// Repeat the same operation for cancelling the context, but this time instead of WithCancel() we will use WithDeadline(a,b) the a argument will be the parent context ctx
+	// and the b argument will be the deadline above (1,5 seconds in this case)
+	ctx, cancelCtx := context.WithDeadline(ctx, deadline)
+	// defer cancelCtx when time has passed
+	defer cancelCtx()
+	// Make a new unbuffered channel of integers and assign it to printCh
+	printCh := make(chan int)
+	// call the doAnother function as goroutine
+	go doAnother(ctx, printCh)
+	// Modify the loop, for each number, wait for one second.
+	// And whenever it receives a ctx.Done(), just break the selection.
+	for num := 1; num <= 3; num++ {
+		select {
+			// case 1 (receive a number to printCh channel)
+			case printCh <- num:
+				// then sleep for a second
+				time.Sleep(1 * time.Second)
+			// case 2 (received ctx.done())
+			case <-ctx.Done():
+				// break
+				break
+		}
+	}
+	
+	// sleep for 100 ms
+	time.Sleep(1000 * time.Millisecond)
+	// print that doSomething has finished
+	fmt.Printf("doSomething: finished\n")
 }
 
-//Create a function named handler_2 that will write "Hello from handlefunc #2"
-func handler_2(w http.ResponseWriter, r *http.Request){
-  w.Write([]byte("Hello from Handlefunc #2"))
+
+
+func doAnother(ctx context.Context, printCh <-chan int) {
+	for {
+		select {
+		// first case will be reciving a ctx.Done() call, if this happens we will handle errors and abort the doAnother function.
+		case <-ctx.Done():
+			if err := ctx.Err(); err != nil {
+				fmt.Printf("doAnother err: %s\n", err)
+			}
+			fmt.Printf("doAnother: finished\n")
+			return
+		// Second case will receive a value from printCh and assign that to a variable called num, after that print the num variable
+		case num := <-printCh:
+			fmt.Printf("doAnother: %d\n", num)
+		}
+	}
 }
 
-func main() {  
-  // This ListenAndServe will get 2 parameters: 1 - Address (:8080) in this case
-  //                                            2 - nil
-  
-  // Now, use the http.HandleFunc() to register the handler_1 function to the "/handler1" pattern
-  // And use the same method to register the handler_2 function to "/handler2" pattern
-  http.HandleFunc("/handler1", handler_1)
-  http.HandleFunc("/handler2", handler_2)
-
-  server := http.ListenAndServe(":8080", nil)
-  if (server != nil){
-    log.Print("Cannot start sever")
-  }
+func main() {
+	ctx := context.Background()
+	doSomething(ctx)
 }

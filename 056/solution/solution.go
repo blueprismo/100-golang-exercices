@@ -1,33 +1,23 @@
-// Exercise: Socket implementation (client side)
-
-// We will use the net library, and create a really basic client
-// Please read the docs before anything!
-// https://pkg.go.dev/net
-
+// Contexts - Add data 
 package main
 
-import "net"
-import "fmt"
-import "bufio"
-import "os"
+import (
+	"context" 
+	"fmt"
+)
+
+// Create a function called doSomething with an argument ctx of type context.Context (this is an interface)
+func doSomething(ctx context.Context) {
+	// Here, print the ctx.Value() call with the key variable you added in the main function
+	fmt.Println("doSomething: Name's value is", ctx.Value("Name"))
+}
 
 func main() {
+	ctx := context.Background()
 
-  // connect to server (use the Dial function!)
-  conn, _ := net.Dial("tcp", "localhost:8000")
-
-  // Infinite loop again 
-  for { 
-    // what to send?
-    reader := bufio.NewReader(os.Stdin)
-    fmt.Print("Text to send: ")
-    text, _ := reader.ReadString('\n')
-
-    // send to server (use Fprintf for this!) 
-    fmt.Fprintf(conn, text + "\n")
-
-    // wait for reply from server (must accept the connection)
-    message, _ := bufio.NewReader(conn).ReadString('\n')
-    fmt.Print("Message from server: "+message)
-  }
+	// here we will assign to ctx the context.WithValue() method, the first argument will be the context, the second your key
+	// (this key will be referenced as the "ctx.Value(key)" in the function doSomething above, and the third the value of your key (for example key = Name, value = John)
+	ctx = context.WithValue(ctx,"Name","John")
+	// call the function with the empty context created before as it's only argument
+	doSomething(ctx)
 }

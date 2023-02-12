@@ -1,67 +1,65 @@
-// REST API - CRUD operations
-// In this exercises, we are going to create an API with the gofiber library.
-// https://github.com/gofiber/fiber
-// You need to go to the root of this repository and run `go get -u github.com/gofiber/fiber/v2`
+// Exercise: Create an API with GIN framework - GET request to specific ITEM
 package main
 
+// In this exercise what we want to do is get an specific album by it's ID
+// The path we will want to go is "/album/$ID" and it will return our album with the ID (if it exists!!!)
+
 import (
-	"context"
-	"log"
-	"os"
-	"github.com/joho/godotenv"
-	"go.mongodb.org/mongo-driver/mongo"
-	"go.mongodb.org/mongo-driver/mongo/options"
-	"github.com/gofiber/fiber/v2"
+  "github.com/gin-gonic/gin"
+  "net/http"
 )
 
-type User struct {
-	Age  int    `json:"age"`
-	Name string `json:"name"`
+// album represents data about a record album.
+type album struct {
+  ID     string  `json:"id"`
+  Title  string  `json:"title"`
+  Artist string  `json:"artist"`
+  Price  float64 `json:"price"`
 }
 
+// albums slice to seed record album data.
+var albums = []album{
+  {ID: "1", Title: "Blue Train", Artist: "John Coltrane", Price: 56.99},
+  {ID: "2", Title: "Jeru", Artist: "Gerry Mulligan", Price: 17.99},
+  {ID: "3", Title: "Sarah Vaughan and Clifford Brown", Artist: "Sarah Vaughan", Price: 39.99},
+}
 
-func initDB() *mongo.Database {
-	// MongoDB connection setup
-	err := godotenv.Load()
-	if err != nil {
-		log.Fatal("Could not load .env file")
-	}
-	uri := os.Getenv("MONGODB_URI")
-	if uri == "" {
-		log.Fatal("You must set your 'MONGODB_URI' environmental variable. See\n\t https://www.mongodb.com/docs/drivers/go/current/usage-examples/#environment-variable")
-	}
-	client, err := mongo.Connect(context.TODO(), options.Client().ApplyURI(uri))
-	if err != nil {
-		panic(err)
-	}
-	defer func() {
-		if err := client.Disconnect(context.TODO()); err != nil {
-			panic(err)
+func getAlbums(c *gin.Context) {
+  c.IndentedJSON(http.StatusOK, albums)
+}
+
+func postAlbums( c *gin.Context){
+  var newAlbum album
+  if err := c.BindJSON(&newAlbum); err != nil {
+    return
+  }
+  albums = append(albums,newAlbum)
+  c.IndentedJSON(http.StatusCreated, newAlbum)
+}
+
+func getSpecificAlbum(c *gin.Context){
+  // get the ID in a variable
+  var id string = c.Param("id")
+
+  // check if it matches any of the slice ID (you have to iterate through the array)
+  for _, album := range albums {
+		if id == album.ID {
+			c.IndentedJSON(http.StatusOK, album)
+      return
 		}
-	}()
-	return client.Database("TestCluster")
+	}
+
+  // return some error message when album isn't found!
+  c.IndentedJSON(http.StatusNotFound, gin.H{"message": "album not found"})
 }
 
-// Create a simple function to return some string to the fiber context
-// this function signature will be [func helloWorld(c *fiber.Ctx)]
-// inside you will call the Send() method in that context, with the string "Hello World!" as it's only argument.
-func helloWorld(c *fiber.Ctx) error {
-	return c.SendString("Hello, World!")
-}
-
-// Create a function setUP routes with a signature like func setupRoutes(a *fiber.App)
-// inside this function use a.GET to the root path, and the helloWorld function we created above
-func setupRoutes(app *fiber.App) {
-	app.Get("/", helloWorld)
-}
-
-// main 
-func main (){
-	// Fiber 
-	// Create a new App with fiber.New()
-	app := fiber.New()
-	// Add the routes to the app we created above (right now we only have 1 route)
-	setupRoutes(app)
-	// Listen to port 3000
-    app.Listen(":3000")
+func main() {  
+  // we will registrer a handler (or router) with gin.Default()
+  router := gin.Default()
+  router.GET("/albums", getAlbums)
+  router.POST("/albums", postAlbums)
+  // create the route specific to get the /album/$ID (https://github.com/gin-gonic/gin#parameters-in-path)
+  router.GET("/albums/:id", getSpecificAlbum)
+  // run the server with the Run() function
+  router.Run("localhost:8080")
 }

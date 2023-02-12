@@ -1,104 +1,77 @@
-// REST API - CRUD operations
-// In this exercises, we are going to create an API with the gofiber library.
-// https://github.com/gofiber/fiber
-// You need to go to the root of this repository and run `go get -u github.com/gofiber/fiber/v2`
+// Exercise: Create an API with GIN framework - Query string parameters
 package main
 
+// In this exercise what we want to do is handle query string parameters
+// Query string parameters are the ones you may find in the url like this:
+// http://example.com/welcome?name=enin&surname=tolstoy
+//                            <---1--->&<---2---------> .  2 parameters in this case
+
+
+// We will handle them with gin, and we will try to access an album the same way in the previous exercise, but with it's query string parameters
+// We will modify the first function to handle both ways (with and without query string parameters)
 import (
-	"context"
-	"log"
-	"os"
-	"encoding/json"
-	"net/http"
-	"github.com/joho/godotenv"
-	"go.mongodb.org/mongo-driver/bson"
-	"go.mongodb.org/mongo-driver/mongo"
-	"go.mongodb.org/mongo-driver/mongo/options"
-	"github.com/gofiber/fiber/v2"
+  "github.com/gin-gonic/gin"
+  "net/http"
 )
 
-// IMPORTANT FOR THIS EXERCISE, READ ALL THE FILE BEFORE BEGINNING!!! 
-// Our goal is to create a new endpoint (app.Get(/users/:id)), so when we try to find /users/John we find one, but when we try to find /users/john it doesn't
-// (case sensitivity for this case :) )
-
-type User struct {
-	Age  int    `bson:"age"`
-	Name string `bson:"name"`
+// album represents data about a record album.
+type album struct {
+  ID     string  `json:"id"`
+  Title  string  `json:"title"`
+  Artist string  `json:"artist"`
+  Price  float64 `json:"price"`
 }
 
-// Create a UserResponse type, it will have 3 elements:
-// 1- Status, integer
-// 2- Message, string
-// 3- Data, a *fiber.Map element containing our actual payload. *fiber.Map is a shortcut for map[string]interface{}, useful for JSON returns.
-type UserResponse struct {
-    Status  int        `json:"status"`
-    Message string     `json:"message"`
-    Data    *fiber.Map `json:"data"`
+// albums slice to seed record album data.
+var albums = []album{
+  {ID: "1", Title: "Blue Train", Artist: "John Coltrane", Price: 56.99},
+  {ID: "2", Title: "Jeru", Artist: "Gerry Mulligan", Price: 17.99},
+  {ID: "3", Title: "Sarah Vaughan and Clifford Brown", Artist: "Sarah Vaughan", Price: 39.99},
 }
 
-func initDB() *mongo.Database {
-	// MongoDB connection setup
-	err := godotenv.Load()
-	if err != nil {
-		log.Fatal("Could not load .env file")
+// IN THIS EXERCISE YOU HAVE TO MODIFY THIS FUNCTION!!
+func getAlbums(c *gin.Context) {
+  // get the query string (look up for the .Query() function in gin :) )
+  // our QueryString key will be "id" and the value, the ID we want to get
+  
+  // if the id is null, serve all the albums (like in the first gin API exercise)
+  
+
+  // else, loop over the array to serve the matching album.
+    
+  // return some error message when album isn't found inside this else block!!
+  
+}
+
+func postAlbums( c *gin.Context){
+  var newAlbum album
+  if err := c.BindJSON(&newAlbum); err != nil {
+    return
+  }
+  albums = append(albums,newAlbum)
+  c.IndentedJSON(http.StatusCreated, newAlbum)
+}
+
+func getSpecificAlbum(c *gin.Context){
+  var id string = c.Param("id")
+  for _, album := range albums {
+		if id == album.ID {
+			c.IndentedJSON(http.StatusOK, album)
+      return
+		}
 	}
-	uri := os.Getenv("MONGODB_URI")
-	if uri == "" {
-		log.Fatal("You must set your 'MONGODB_URI' environmental variable. See\n\t https://www.mongodb.com/docs/drivers/go/current/usage-examples/#environment-variable")
-	}
-	client, err := mongo.Connect(context.TODO(), options.Client().ApplyURI(uri))
-	if err != nil {
-		panic(err)
-	}
-	return client.Database("TestCluster")
+  c.IndentedJSON(http.StatusNotFound, gin.H{"message": "album not found"})
 }
 
-func getUser(c *fiber.Ctx) error {
-	// Connect to the DB
-	collection := initDB().Collection("users")
 
-	// Get user by name, first extract the name from the URI:
-	name :=
-	
-	// And now let's find one user named "John" in the database, let's create a search filter with has the "name" = parameter we set before
-	filter := 
-	// Let's create a user variable of type User to reference it with the FindOne function later
-	var 
-	// Let's use the FindOne() function and reference the return value in the result variable created above!
-	err := 
-	// Catch the error, if the above query was unsuccesful, return a HTTP500 status message with the err.Error() as the data payload, and "error" as message.
-	if err != nil {
-        
-    }
-	
-	/*
-	// DEBUGGING
-	output, err := json.MarshalIndent(user, "", "    ")
-	if err != nil {
-		panic(err)
-	}
-	log.Printf("%s\n", output)
-	*/
+func main() {  
+  // we will registrer a handler (or router) with gin.Default()
+  router := gin.Default()
 
-	// if everything went alright, return the c.Status(200).JSON(UserResponse{}) with the userresponse status as 200, message as success and the data our user!
-	
-}
+  router.GET("/albums", getAlbums)
+  router.POST("/albums", postAlbums)
+  router.GET("/albums/:id", getSpecificAlbum)
 
-func helloWorld(c *fiber.Ctx) error {
-	return c.SendString("Hello, World!")
-}
-
-func setupRoutes(app *fiber.App) {
-	app.Get("/", helloWorld)
-	// We will allocate the /user/:name uri, and we will pass the name as queryParam (/user/john)
-	
-}
-
-// main 
-func main (){
-	app := fiber.New()
-	// Add the routes to the app we created above (right now we only have 2 routes)
-	setupRoutes(app)
-	// Listen to port 3000
-    app.Listen(":3000")
+  // run the server with the Run() function
+  router.Run("localhost:8080")
 }

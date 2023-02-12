@@ -1,66 +1,44 @@
-// Bulk insert
-// In this exercises, we are going to learn about BSON, a binary serialization format (like JSON) which is used to marshall and unmarshall data ad make remote calls in mongoDB
-// First, we need to import the `go.mongodb.org/mongo-driver/bson` library.
+// Exercise: Create an API with GIN framework
 package main
 
 import (
-	"context"
-	"log"
-	"os"
-	"github.com/joho/godotenv"
-	"go.mongodb.org/mongo-driver/bson"
-	"go.mongodb.org/mongo-driver/mongo"
-	"go.mongodb.org/mongo-driver/mongo/options"
+  "github.com/gin-gonic/gin"
+  "net/http"
 )
 
-type User struct{
-	Name string
-	Age  int
+// album represents data about a record album.
+type album struct {
+  ID     string  `json:"id"`
+  Title  string  `json:"title"`
+  Artist string  `json:"artist"`
+  Price  float64 `json:"price"`
 }
 
-func main (){
-	err := godotenv.Load()
-	if err != nil {
-		log.Fatal("Could not load .env file")
-	}
-	uri := os.Getenv("MONGODB_URI")
-	if uri == "" {
-		log.Fatal("You must set your 'MONGODB_URI' environmental variable. See\n\t https://www.mongodb.com/docs/drivers/go/current/usage-examples/#environment-variable")
-	}
-	client, err := mongo.Connect(context.TODO(), options.Client().ApplyURI(uri))
-	if err != nil {
-		panic(err)
-	}
-	defer func() {
-		if err := client.Disconnect(context.TODO()); err != nil {
-			panic(err)
-		}
-	}()
-	usersCollection := client.Database("TestCluster").Collection("users")
-	log.Println(usersCollection.Name())
-	
-	// Let's add a bunch of users with the InsertMany() method
-	// Create a userList of minimum 5 users, and one of them must be called "Rose"
-	userList := []interface{}{
-		User{ Name : "Edward", Age: 10},
-		User{ Name : "Elise", Age: 20},
-		User{ Name : "Caroline", Age: 25},
-		User{ Name : "Rose", Age: 30},
-		User{ Name : "Staicy", Age: 50},
-	}
-	res, err := usersCollection.InsertMany(context.TODO(), userList)
-	if err != nil {
-		panic(err)
-	}
-	// And now let's find one user named "John" in the database, let's create a search filter with has the "name" = "John"
-	filter := bson.D{{"name","Rose"}}
-	// Let's create a return variable of type bson.D
-	var result bson.D 
-	// Let's use the FindOne() method and reference the return value in the result variable created above
-	err = usersCollection.FindOne(context.TODO(), filter).Decode(&result)
-	if err != nil {
-		panic(err)
-	}
-	log.Printf("inserted documents with IDs %v\n", res.InsertedIDs)
-	
+// albums slice to seed record album data.
+var albums = []album{
+  {ID: "1", Title: "Blue Train", Artist: "John Coltrane", Price: 56.99},
+  {ID: "2", Title: "Jeru", Artist: "Gerry Mulligan", Price: 17.99},
+  {ID: "3", Title: "Sarah Vaughan and Clifford Brown", Artist: "Sarah Vaughan", Price: 39.99},
+}
+
+// Then, let's create a handler function ((a normal function, which then we will wrap :) ))
+// name it getAlbums, and it's only argument named 'c' will be a pointer type of gin.Context.
+func getAlbums(c *gin.Context) {
+  // use the IndentedJSON function with the gin context, and pass it an http status ok, and the albums array
+  // more info: https://pkg.go.dev/github.com/gin-gonic/gin#Context.IndentedJSON
+  c.IndentedJSON(http.StatusOK, albums)
+}
+
+func main() {  
+  // we will registrer a handler (or router) with gin.Default()
+  router := gin.Default()
+  
+  // here access the router .GET http verb for the request. 
+  // https://pkg.go.dev/github.com/gin-gonic/gin#readme-using-get-post-put-patch-delete-and-options
+  // the first argument will be the URI (or pattern) and the second one the getAlbums handler function we defined before
+  router.GET("/albums", getAlbums)
+
+  // run the server with the Run() function
+  router.Run("localhost:8080")
+  
 }

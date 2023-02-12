@@ -1,31 +1,37 @@
-// Exercise: Create an API
+// Interfaces - Intro - Implicit implementation
+
+// In golang, we don't use the "implements" keyword when using an interface.
+// We don't have to say that explicitly, instead we need some type to satisfy the area() method.
+// We say something implements an interface if it has a method with the exact signature.
+// Inside our geometry interface, we have a signature called "area()"
+// In this exercise, we are going to create a function with that signature!
+
 package main
 
 import (
-  "encoding/json"
-  "net/http"
-  "log"
+	"fmt"
 )
-// Let's create a struct 'Animal' with a variable 'Name' and another called 'Type' both type string
-type Animal struct {
-  Name  string `json:"Name"`
-  Type  string `json:"Type"`
+
+type geometry interface{
+	area() float64
 }
 
-// Then, let's create a handler function ((a normal function, which then we will wrap :) ))
-func AnimalsHandler(w http.ResponseWriter, r *http.Request) {
-  // Create an array of 3 animals called "animals" and put 3 animals in there with it's name and type:
-  
-  // use the json NewEncoder() function, to encode the animals array within the responsewriter element
-  
+// A rectangle struct
+type rect struct {
+    width, height float64
 }
 
-func main() {  
-  // Register the handler into the defaultservemux (remember which function was used!) at the root path "/"
-  
-  // Start the server with the DefaultServeMux!
-  server := http.ListenAndServe(":8080", )
-  if (server != nil){
-    log.Print("Cannot start sever")
-  }
+// We are going to create a function with the area() signature.
+// The function will be a receiver function (the receiver will be a rectangle "r")
+// The function will be named area, without any arguments and will return a float64 value
+
+	// The return value will be the area of the rectangle
+
+
+
+func main() {
+	// Create a new rectangle and store it in a variable
+	
+	// Print the variable
+	fmt.Println(r.area())
 }

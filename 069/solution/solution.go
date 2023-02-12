@@ -1,15 +1,36 @@
+// Exercise: JSON!! - Marshal (encode)
+
+// We will create a json object.
+// First, create a struct called 'user' which contains 2 attributes of type string called 'Username' and 'Password'
+// Then, create an array of 3 users 'John', 'Anna' and 'Mike' with any random password
+// Use the json.Marshal() function to encode the go array into a JSON object.
+
 package main
 
-import "fmt"
+import (
+    "fmt"
+    "encoding/json"
+)
 
-// Testing!! 
-// Now let's see what happens when a test fails!
-// Exercise: Create a function that returns a string "Hello, Test. THIS WILL FAIL"
-func HelloTest() string {
-  return "Hello, Test. THIS WILL FAIL"
+type user struct {
+  Username string
+  Password string
 }
 
-// Print the function
 func main() {
-  fmt.Println(HelloTest())
+  users := []user{
+    {"debora","123456"},
+    {"bob","42"},
+    {"sandra","33"},
+  }
+
+  // use marshal func to convert to json
+  out, err := json.Marshal(users)
+  if err != nil {
+      fmt.Println(err)
+      return
+  }
+
+  // print encoded json data
+  fmt.Println(string(out))
 }

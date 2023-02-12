@@ -17,7 +17,10 @@ My main idea is that the exercices are structured like this:
 - From 32 to 44  : Concurrency
 - From 45 to 48  : Time
 - From 49 to 53  : JSON
-- From 54 to 67  : HTTP & APIs
+- From 54 to 61  : Context
+- From 62 to 68  : Interfaces
+- From 69 to 82  : HTTP & APIs
+- From 83 to 
 - From 68 to 74  : Testing & misc
 - From 75 to 85  : Database (non-relational(mongo)) + CRUD API with Fiber
 - From 86 to 93  : Context

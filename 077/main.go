@@ -1,57 +1,37 @@
-// In this exercises, we are going to learn about BSON, a binary serialization format (like JSON) which is used to marshall and unmarshall data ad make remote calls in mongoDB
-// First, we need to import the `go.mongodb.org/mongo-driver/bson` library.
+// Exercise: Let's talk about ServeMux! And receivers in functions.
 package main
 
-import (
-	"context"
-	"log"
-	"os"
-	"github.com/joho/godotenv"
-//	"go.mongodb.org/mongo-driver/bson"
-	"go.mongodb.org/mongo-driver/mongo"
-	"go.mongodb.org/mongo-driver/mongo/options"
-)
+import "net/http"
+import "log"
+import "fmt"
 
-// Here we are going to create a defined data structure called "User"
-// It will have two values:
-// - Name, a string
-// - Age, a integer
-type User struct {
-	
+// We will have this Counter struct
+type Counter struct {
+  n int
+}
+// Imagine we have this counter.
+// Bear in mind that this first part of the function
+//   (ctr *Counter) is called a receiver, this means that the function caller WILL be a Counter element
+func (ctr *Counter) ServeHTTP(w http.ResponseWriter, req *http.Request) {
+  ctr.n++
+  fmt.Fprintf(w, "counter = %d\n", ctr.n)
 }
 
-// main func
-func main (){
-	err := godotenv.Load()
-	if err != nil {
-		log.Fatal("Could not load .env file")
-	}
-	uri := os.Getenv("MONGODB_URI")
-	if uri == "" {
-		log.Fatal("You must set your 'MONGODB_URI' environmental variable. See\n\t https://www.mongodb.com/docs/drivers/go/current/usage-examples/#environment-variable")
-	}
-	client, err := mongo.Connect(context.TODO(), options.Client().ApplyURI(uri))
-	if err != nil {
-		panic(err)
-	}
-	log.Println("You got connected!")
-	defer func() {
-		if err := client.Disconnect(context.TODO()); err != nil {
-			panic(err)
-		}
-	}()
-	usersCollection := client.Database("TestCluster").Collection("users")
-	log.Println(usersCollection.Name())
+func main() {  
+  // Create a ServeMux variable called 'mux'
+  // And assign it the value of a new servemux
+  mux := http.NewServeMux()
 
-	//Here, we are going to create a User.
-	name :=  
-	age  := 
-	created_user := 
-	// Now we will use the InsertOne() function to add the created_user into the users collection.
-	_, err = 
+  // Register a new Counter element in a variable called 'ctr' (tip: use the new() function!)
 
-	if err != nil {
-		panic(err)
-	}
-	
+  // Now we will use the Handle() function with the mux variable.
+  // The first argument will be the "/counter" pattern
+  // The second argument will be the ctr function, in this case we can see very clearly how the handler acts as middleware. 
+  
+
+  // Start the server with ListenAndServe() function, and as the second parameter use the "mux" servemux you have created!
+  server := http.ListenAndServe(":8080", mux)
+  if (server != nil){
+    log.Print("Cannot start sever")
+  }
 }

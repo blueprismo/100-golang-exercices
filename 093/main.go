@@ -1,64 +1,60 @@
-// Contexts - Canceling a context (withTimeout)
+// UNMARSHALL
+// In this exercises, we are going to learn about BSON, a binary serialization format (like JSON) which is used to marshall and unmarshall data ad make remote calls in mongoDB
+// First, we need to import the `go.mongodb.org/mongo-driver/bson` library.
 package main
 
 import (
-	"context" 
-	"fmt"
-	"time"
+	"context"
+	"log"
+	"os"
+	"github.com/joho/godotenv"
+	"go.mongodb.org/mongo-driver/bson"
+	"go.mongodb.org/mongo-driver/mongo"
+	"go.mongodb.org/mongo-driver/mongo/options"
 )
 
-// Modify the doSomething function
-func doSomething(ctx context.Context) {
-	// Repeat the same operation for cancelling the context, but this time instead of WithDeadline(a,b) we will use WithTimeout(ctx,time.Time)
-	// We will assign it a time of 1,5 seconds
-	
-	// defer cancelCtx when time has passed
-	defer cancelCtx()
-	// Make a new unbuffered channel of integers and assign it to printCh
-	printCh := make(chan int)
-	// call the doAnother function as goroutine
-	go doAnother(ctx, printCh)
-	// Modify the loop, for each number, wait for one second.
-	// And whenever it receives a ctx.Done(), just break the selection.
-	for num := 1; num <= 3; num++ {
-		select {
-			// case 1 (receive a number to printCh channel)
-			case printCh <- num:
-				// then sleep for a second
-				time.Sleep(1 * time.Second)
-			// case 2 (received ctx.done())
-			case <-ctx.Done():
-				// break
-				break
-		}
-	}
-	
-	// sleep for 100 ms
-	time.Sleep(1000 * time.Millisecond)
-	// print that doSomething has finished
-	fmt.Printf("doSomething: finished\n")
+type User struct{
+	Name string
+	Age  int
 }
 
-
-
-func doAnother(ctx context.Context, printCh <-chan int) {
-	for {
-		select {
-		// first case will be reciving a ctx.Done() call, if this happens we will handle errors and abort the doAnother function.
-		case <-ctx.Done():
-			if err := ctx.Err(); err != nil {
-				fmt.Printf("doAnother err: %s\n", err)
-			}
-			fmt.Printf("doAnother: finished\n")
-			return
-		// Second case will receive a value from printCh and assign that to a variable called num, after that print the num variable
-		case num := <-printCh:
-			fmt.Printf("doAnother: %d\n", num)
-		}
+func main (){
+	err := godotenv.Load()
+	if err != nil {
+		log.Fatal("Could not load .env file")
 	}
-}
-
-func main() {
-	ctx := context.Background()
-	doSomething(ctx)
+	uri := os.Getenv("MONGODB_URI")
+	if uri == "" {
+		log.Fatal("You must set your 'MONGODB_URI' environmental variable. See\n\t https://www.mongodb.com/docs/drivers/go/current/usage-examples/#environment-variable")
+	}
+	client, err := mongo.Connect(context.TODO(), options.Client().ApplyURI(uri))
+	if err != nil {
+		panic(err)
+	}
+	defer func() {
+		if err := client.Disconnect(context.TODO()); err != nil {
+			panic(err)
+		}
+	}()
+	usersCollection := client.Database("TestCluster").Collection("users")
+	log.Println(usersCollection.Name())
+	
+	// Let's add a second user!
+	created_user := User{"Mary", 50}
+	res , err := usersCollection.InsertOne(context.TODO(), created_user)
+	if err != nil {
+		panic(err)
+	}
+	// We can reference it!
+	log.Println("User with id created:", res.InsertedID)
+	// And now let's find one user named "John" in the database, let's create a search filter with has the "name","John"
+	filter := bson.D{{"name","John"}}
+	// Let's create a return variable of type bson.D
+	
+	// Let's use the FindOne(options).Decode(&result) method and reference the return value in the result variable created above
+	err = 
+	if err != nil {
+		panic(err)
+	}
+	log.Println(result)
 }

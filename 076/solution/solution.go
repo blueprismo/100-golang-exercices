@@ -1,49 +1,29 @@
+// Exercise: Let's talk about ServeMux!
 package main
 
-import (
-	"context"
-	"log"
-	"os"
-	"github.com/joho/godotenv"
-//	"go.mongodb.org/mongo-driver/bson"
-	"go.mongodb.org/mongo-driver/mongo"
-	"go.mongodb.org/mongo-driver/mongo/options"
-)
+import "net/http"
+import "log"
 
-func main (){
-	err := godotenv.Load()
-	if err != nil {
-		log.Fatal("Could not load .env file")
-	}
+// In this exercise I want you to talk about serveMux, arm yourself with documentation first please!
+// In a nutshell, servemux is an http request multiplexer (https://pkg.go.dev/net/http#ServeMux)
+// In the last exercise, notice that we passed the 'nil' value to the .ListenAndServe() function. When a nil value is passed, the DefaultServeMux value is gathered.
 
-	// Create a variable named "uri" containing your MONGODB_URI string connection.
-	uri := os.Getenv("MONGODB_URI")
-	if uri == "" {
-		log.Fatal("You must set your 'MONGODB_URI' environmental variable. See\n\t https://www.mongodb.com/docs/drivers/go/current/usage-examples/#environment-variable")
-	}
-	client, err := mongo.Connect(context.TODO(), options.Client().ApplyURI(uri))
-	if err != nil {
-		panic(err)
-	}
+// Let's supose we have the previous handler function:
+func customHandler (w http.ResponseWriter, r *http.Request){
+  w.Write([]byte("Hello from customHandler!"))
+}
 
-	defer func() {
-		if err := client.Disconnect(context.TODO()); err != nil {
-			panic(err)
-		}
-	}()
-	
-	// Create a collection called "users" into your Database.
-	// To do so, use the client.Database() call, and call the .CreateCollection() method to create a collection if it doesn't exist!
-	// The third and subsequent arguemnts (4th,5th,6th... will be options) 
-	// We will set the options SetCapped to true and SetSizeInBytes to 1048576.
-	// for better readness, we will declare a opts object as follows:
-	opts := options.CreateCollection()
-	// And here create the database collection below this line with the context.TODO() as first argument, the collection name as the second, and the 2 options as the third and fourth
-	client.Database("TestCluster").CreateCollection(context.TODO(), "users", opts.SetCapped(true), opts.SetSizeInBytes(1048576))
-	
-	// Here, we will return the name of the collection, to check everything went allright :)
-	usersCollection := client.Database("TestCluster").Collection("users")
-	log.Println(usersCollection.Name())
-	log.Println("You got connected!")
-	
+func main() {  
+  // Create a ServeMux variable called 'mux'
+  // And assign it the value of a new servemux
+  mux := http.NewServeMux()
+
+  //Use the HandleFunc() function, as the 1st argument you will have to put the root path "/" and the 2nd argument will be the customHandler function
+  mux.HandleFunc("/", customHandler)
+
+  // Start the server with ListenAndServe() function, and as the second parameter use the "mux" servemux you have created!
+  server := http.ListenAndServe(":8080", mux)
+  if (server != nil){
+    log.Print("Cannot start sever")
+  }
 }

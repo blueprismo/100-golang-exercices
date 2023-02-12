@@ -1,36 +1,23 @@
-// Exercise: JSON!! - Marshal (encode)
+// Contexts
+// I feel contexts are a really powerful feature in GO and I haven't given the importance that it deserves.
 
-// We will create a json object.
-// First, create a struct called 'user' which contains 2 attributes of type string called 'Username' and 'Password'
-// Then, create an array of 3 users 'John', 'Anna' and 'Mike' with any random password
-// Use the json.Marshal() function to encode the go array into a JSON object.
-
+// In this episodes, we are going to talk about contexts!
 package main
 
 import (
-    "fmt"
-    "encoding/json"
+	"context" // import the "context" package
+	"fmt"
 )
 
-type user struct {
-  Username string
-  Password string
+// Create a function called doSomething with an argument ctx of type context.Context (this is an interface)
+func doSomething(ctx context.Context) {
+	fmt.Println("Doing something!")
 }
 
 func main() {
-  users := []user{
-    {"debora","123456"},
-    {"bob","42"},
-    {"sandra","33"},
-  }
+	// create a variable called ctx, this variable will have a context.TODO() value, which returns an empty Context.
+	ctx := context.TODO()
 
-  // use marshal func to convert to json
-  out, err := json.Marshal(users)
-  if err != nil {
-      fmt.Println(err)
-      return
-  }
-
-  // print encoded json data
-  fmt.Println(string(out))
+	// call the function with the empty context created before as it's only argument
+	doSomething(ctx)
 }

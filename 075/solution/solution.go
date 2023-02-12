@@ -1,47 +1,34 @@
+// Exercise: Set up a simple HTTP Server
 package main
 
-// In this exercise we will Stablish a connection with mongoDB - Atlas
-// MongoDB is a non relational kind of db, and it's saas has a free tier. Find out more here.
-// https://www.mongodb.com/docs/atlas/tutorial/deploy-free-tier-cluster/
-// You can also use a docker container locally to connect, use whatever option suits you best.
+import "net/http"
+import "log"
 
-// 1- You need to install these two libraries through the following commands, one is for the mongo driver and the other for a dotenv file
-// go get go.mongodb.org/mongo-driver/mongo
-// go get github.com/joho/godotenv
-// 2- Once installed, create a file named ".env" containing your 
-import (
-	"context"
-	//"encoding/json"
-	//"fmt"
-	"log"
-	"os"
-	"github.com/joho/godotenv"
-	//"go.mongodb.org/mongo-driver/bson"
-	"go.mongodb.org/mongo-driver/mongo"
-	"go.mongodb.org/mongo-driver/mongo/options"
-)
+// In this exercise we will register the handler function for a given pattern!
+// We will use this HandleFunc BEWARE IT'S NOT THE SAME THAN HandlerFunc!!!!!
+// We will register these patterns (uri) in the defaultServerMux, we will talk about it later
 
-func main (){
-	err := godotenv.Load()
-	if err != nil {
-		log.Fatal("Could not load .env file")
-	}
+// Create a function named handler_1 that will write "Hello from Handlefunc #1"
+func handler_1(w http.ResponseWriter, r *http.Request){
+  w.Write([]byte("Hello from Handlefunc #1"))
+}
 
-	// Create a variable named "uri" containing your MONGODB_URI string connection.
-	uri := os.Getenv("MONGODB_URI")
-	if uri == "" {
-		log.Fatal("You must set your 'MONGODB_URI' environmental variable. See\n\t https://www.mongodb.com/docs/drivers/go/current/usage-examples/#environment-variable")
-	}
-	client, err := mongo.Connect(context.TODO(), options.Client().ApplyURI(uri))
-	if err != nil {
-		panic(err)
-	}
+//Create a function named handler_2 that will write "Hello from handlefunc #2"
+func handler_2(w http.ResponseWriter, r *http.Request){
+  w.Write([]byte("Hello from Handlefunc #2"))
+}
 
-	defer func() {
-		if err := client.Disconnect(context.TODO()); err != nil {
-			panic(err)
-		}
-	}()
+func main() {  
+  // This ListenAndServe will get 2 parameters: 1 - Address (:8080) in this case
+  //                                            2 - nil
+  
+  // Now, use the http.HandleFunc() to register the handler_1 function to the "/handler1" pattern
+  // And use the same method to register the handler_2 function to "/handler2" pattern
+  http.HandleFunc("/handler1", handler_1)
+  http.HandleFunc("/handler2", handler_2)
 
-	log.Println("You got connected!")
+  server := http.ListenAndServe(":8080", nil)
+  if (server != nil){
+    log.Print("Cannot start sever")
+  }
 }

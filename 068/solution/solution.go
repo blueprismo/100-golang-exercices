@@ -1,19 +1,30 @@
+// Interfaces -  Empty interfaces, SWITCH
 package main
 
 import "fmt"
 
-// Testing!! 
-// We will use the go test command and the testing package
-// With go, to unit test your code you must create a file suffixed with "_test.go" where your tests will be
-// For the tests to work, inside the test file the functions will be named TestXXX with signature func (t *testing.T). 
-// if the function calls a failure function such as t.Error or t.Fail, the test is considered to have failed.  
+// Create a function called do, the only argument it will have will be an empty interface
+// Inside that function, create a switch case and use the type assertion to get the interface's type!
+// Our goal here is to evaluate the type and proceed according to it.
 
-// Exercise: Create a function that returns a string "Hello, Test"
-func HelloTest() string {
-  return "Hello, Test"
+func do(i interface{}) {
+	// Switch statement, use type assertion to get the type (type keyword!) (("i.(type)""))
+	switch v := i.(type) {
+		// for integers, print the integer value
+		case int:
+			fmt.Printf("Twice %v is %v\n", v, v*2)
+		// for strings, print the length of the string
+		case string:
+			fmt.Printf("%q is %v bytes long\n", v, len(v))
+		// As default, print something about the type that reaches this zone!
+		default:
+			fmt.Printf("I don't know about type %T!\n", v)
+	}
 }
 
-// Print the function
 func main() {
-  fmt.Println(HelloTest())
+	// call the do function with 3 different types :) 
+	do(21)
+	do("hello")
+	do(true)
 }

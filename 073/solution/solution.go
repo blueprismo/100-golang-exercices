@@ -1,29 +1,25 @@
+// Exercise: Set up a simple HTTP Server
+
+// We will use the net/http library
+// https://pkg.go.dev/net/http
+
+// Like with ExpressJS, we will make a web server, and the web server will serve the "/bar" route
+// and the response should be "Hello, /var". BUT don't hardcode the URI!
+// Changing the http.HandleFunc 1st variable (the URI), the message served should also change.
+// Example: If I set my webserver at /newpath, my response will be "Hello, /newpath"
+
 package main
 
-// In this sets of exercises we are going to learn and use Heimdall
-// To install Heimdall we need to run `go get -u github.com/gojek/heimdall/v7`
-// Then import the package with import "github.com/gojek/heimdall/v7/httpclient" 
+import "net/http"
+import "fmt"
+import "html"
+import "log"
 
-import (
-  "time"
-  "fmt"
-  "io"
-  "github.com/gojek/heimdall/v7/httpclient"
-  ) 
+func main() {
 
-// In this first exercise, we are going to make a simple http request to the google.com webpage
-func main () {
-  // Create a new HTTP client with a default timeout
-  timeout := 1000 * time.Millisecond
-  client := httpclient.NewClient(httpclient.WithHTTPTimeout(timeout))
+  http.HandleFunc("/bar", func(w http.ResponseWriter, r *http.Request) {
+	  fmt.Fprintf(w, "Hello, %q", html.EscapeString(r.URL.Path))
+  })
 
-  // Use the clients GET method to create and execute the request
-  res, err := client.Get("http://google.com", nil)
-  if err != nil{
-  	panic(err)
-  }
-
-  // Heimdall returns the standard *http.Response object
-  body, err := io.ReadAll(res.Body)
-  fmt.Println(string(body))
+  log.Fatal(http.ListenAndServe(":8080", nil))
 }

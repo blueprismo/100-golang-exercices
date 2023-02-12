@@ -1,24 +1,33 @@
-// TESTING!
+// Exercise: Socket implementation (server side)
+
+// We will use the net library, and create a really basic server
+// Please read the docs before anything!
+// https://pkg.go.dev/net
+// When finished, try to connect with netcat (or telnet, or a client) and see if it works
 package main
 
-// In this exercise, we are going to create 3 tests for the reverse function, that reverses a string
-// if it gets "Hello" it will return "olleH"
-
-import "fmt"
-
-func Reverse(s string) string {
-  b := []byte(s)
-  for i, j := 0, len(b)-1; i < len(b)/2; i, j = i+1, j-1 {
-      b[i], b[j] = b[j], b[i]
-  }
-  return string(b)
-}
+import (
+    "fmt"
+    "net"
+    "bufio"
+)
 
 func main() {
-  input := "The quick brown fox jumped over the lazy dog"
-  rev := Reverse(input)
-  doubleRev := Reverse(rev)
-  fmt.Printf("original: %q\n", input)
-  fmt.Printf("reversed: %q\n", rev)
-  fmt.Printf("reversed again: %q\n", doubleRev)
+  fmt.Println("Start server")
+// Now make the server listen at the 8000 port (tcp protocol)
+  ln , err := net.Listen("tcp", ":8000")
+  if err != nil {
+    fmt.Println("Some error has happened!")
+  }
+
+  // Accept the connection
+  conn, err := ln.Accept()
+
+  // Run a loop forever (unless interrupted by signal)
+  for {
+    // Recive a message with the bufio.NewReader(connection).ReadString function
+    message, _ := bufio.NewReader(conn).ReadString('\n')
+    fmt.Print("Message Received:", string(message))
+  }
+  
 }

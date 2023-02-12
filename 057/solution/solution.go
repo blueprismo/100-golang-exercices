@@ -1,31 +1,34 @@
-// Exercise: Set up a simple HTTP Server
-
-// We will use the net/http library
-// https://pkg.go.dev/net/http
-
-// There are multiple ways of creating a http server in GO
-// In this task, we are going to crete a http in your preferred way, so run free with the documentation :)
-// I will provide the simplest solution, the only requirement for this exercise is that the server must 
-// reply with a "Hello web World" response.
-
+// Contexts - Chaining contexts
 package main
 
-import "net/http"
-import "io"
-import "log"
+import (
+	"context" 
+	"fmt"
+)
+
+// Create another function called doAnother, as a context as it's only argument. Like the last exercise, it will print the same key as the doSomething function
+func doAnother(ctx context.Context) {
+	// Here, print the ctx.Value() call with the key variable you added in the main function
+	fmt.Println("doSomething: Name's value is", ctx.Value("Name"))
+}
+
+// Modify the doSomething function
+func doSomething(ctx context.Context) {
+	// Here, print the ctx.Value() call with the key variable you added in the main function
+	fmt.Println("doSomething: Name's value is", ctx.Value("Name"))
+	// Create a varibale anotherCtx and use the context.WithValue(a,b,c) function to pass in the father context as A (ctx), the same key name as b, and a different value as c
+	anotherCtx := context.WithValue(ctx,"Name","Mary")
+	// call the doAnother function with the anotherCtx as it's only argument.
+	// See it's behaviour: Have the values chainged? Are context mutable?
+	doAnother(anotherCtx)
+}
 
 func main() {
-   // Set routing rules
-   http.HandleFunc("/", WebFunc)
+	ctx := context.Background()
 
-   //Use the default DefaultServeMux.
-   err := http.ListenAndServe(":8080", nil)
-   if err != nil {
-           log.Fatal(err)
-   }
+	// here we will assign to ctx the context.WithValue() method, the first argument will be the context, the second your key
+	// (this key will be referenced as the "ctx.Value(key)" in the function doSomething above, and the third the value of your key (for example key = Name, value = John)
+	ctx = context.WithValue(ctx,"Name","John")
+	// call the function with the empty context created before as it's only argument
+	doSomething(ctx)
 }
-
-func WebFunc(w http.ResponseWriter, r *http.Request) {
-   io.WriteString(w, "Hello web World!")
-}
-  

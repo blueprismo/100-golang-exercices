@@ -1,25 +1,26 @@
-// Exercise: Set up a simple HTTP Server
-
-// We will use the net/http library
-// https://pkg.go.dev/net/http
-
-// Like with ExpressJS, we will make a web server, and the web server will serve the "/bar" route
-// and the response should be "Hello, /var". BUT don't hardcode the URI!
-// Changing the http.HandleFunc 1st variable (the URI), the message served should also change.
-// Example: If I set my webserver at /newpath, my response will be "Hello, /newpath"
-
+// Contexts - Chaining contexts, mutable or immutable?
 package main
 
-import "net/http"
-import "fmt"
-import "html"
-import "log"
+import (
+	"context" 
+	"fmt"
+)
+
+func doAnother(ctx context.Context) {
+	fmt.Println("doSomething: Name's value is", ctx.Value("Name"))
+}
+
+// Modify the doSomething function
+func doSomething(ctx context.Context) {
+	fmt.Println("doSomething: Name's value is", ctx.Value("Name"))
+	anotherCtx := context.WithValue(ctx,"Name","Mary")
+	doAnother(anotherCtx)
+	// Add another print statement to show the ctx.Value for your key again, does it change?
+	
+}
 
 func main() {
-
-  http.HandleFunc(/**/ , func(w http.ResponseWriter, r *http.Request) {
-	  
-  })
-
-  log.Fatal(http.ListenAndServe(":8080", nil))
+	ctx := context.Background()
+	ctx = context.WithValue(ctx,"Name","John")
+	doSomething(ctx)
 }

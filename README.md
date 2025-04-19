@@ -1,12 +1,11 @@
 # 100 exercices to improve with GOLANG
 
-> Practice makes makes the master - Patrick
-
 ## Intro
 
-I hadn't find any good repository with 100 exercices for the GO Programming language, and as It's a language that has caught my attention, I will create it myself :smile: feel free to contribute and use it! 
+I hadn't find any good repository with 100 exercices for the GO Programming language, and as It's a beautiful language, I will create it myself :smile: feel free to contribute and use it!
 
-I assume you have go installed and have taken a quick grap about how GO works :) 
+The following exercises assume a fairly basic level of object oriented programming, but it is also OK if you don't have it.
+
 ## Overview
 
 My main idea is that the exercices are structured like this:
@@ -25,17 +24,22 @@ My main idea is that the exercices are structured like this:
 
 
 And inside of each exercice, it's explanation :) and solution inside the `solution` folder
-```sh
-├── n-th_exercise            #<- exercise number
+
+```bash
+├── n-th_exercise       # <- exercise number
 │    ├── main.go
 │    ├── [.env]
-│    └── solution            #<- solution folder
+│    └── solution       # <- solution folder
 │       └── solution.go      
 ├── go.mod
 └── go.sum
 ```
 
-Please notice there are some exercises that are intended to have an execution failure, the important thing here is learning!
+## Prerequisites
+
+Feel free to [install golang](https://go.dev/doc/install), fork the [100-golang-exercises](https://github.com/blueprismo/100-golang-exercices/fork) repository and you'll be ready to go.
+
+Please notice there are some exercises that are intended to have an execution failure, the important thing here is learning and have fun.
 Feel free to contribute, comment, have fun or just provide feedback!
 
-Thanks a lot 
+Thanks a lot

@@ -22,8 +22,7 @@ My main idea is that the exercices are structured like this:
 - From 83 to 89  : Testing & misc
 - From 90 to 100 : Database (non-relational(mongo)) + CRUD API with Fiber
 
-
-And inside of each exercice, it's explanation :) and solution inside the `solution` folder
+Each folder will contain one exercise and one solution. There are multiple ways to acheive the same reault, so everything counts.
 
 ```bash
 ├── n-th_exercise       # <- exercise number
@@ -39,7 +38,9 @@ And inside of each exercice, it's explanation :) and solution inside the `soluti
 
 Feel free to [install golang](https://go.dev/doc/install), fork the [100-golang-exercises](https://github.com/blueprismo/100-golang-exercices/fork) repository and you'll be ready to go.
 
+## Note
+
 Please notice there are some exercises that are intended to have an execution failure, the important thing here is learning and have fun.
-Feel free to contribute, comment, have fun or just provide feedback!
+Feel free to contribute, comment, share your solutions and of course have lot of fun!
 
 Thanks a lot

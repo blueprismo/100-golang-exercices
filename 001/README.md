@@ -17,7 +17,6 @@ func main () {
 
 <details>
 <summary> Solution: </summary>
-<br>
 
 ```golang
 package main

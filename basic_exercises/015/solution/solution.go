@@ -15,5 +15,4 @@ func main () {
 		fmt.Println(init)
 		init++
 	}
-	
 }

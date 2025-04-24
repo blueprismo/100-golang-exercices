@@ -1,0 +1,15 @@
+# Table of contents
+
+* [Exercise: Run a program that prints "Hello World!"](README.md)
+* [Exercise: Concatenate two string variables and print it's result](004/README.md)
+* [Exercise: With a single string variable, use access the first character with the string index](005/README.md)
+* [Exercise: Learn FORMAT STRING!! Print some verbs with their corresponding letter](006/README.md)
+* [Exercise: User input](007/README.md)
+* [Exercise: User input](008/README.md)
+* [Exercise: Arrays](009/README.md)
+* [Exercise: Create an array of 5 strings, and initialize it's 2 first values with some random names](010/README.md)
+* [Exercise: For loops](011/README.md)
+* [Exercise: RANGE](012/README.md)
+* [Exercise: RANGE and Blank identifier](013/README.md)
+* [Exercise: Conditionals](014/README.md)
+* [Exercise: while loop](015/README.md)

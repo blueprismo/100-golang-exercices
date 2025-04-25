@@ -2,6 +2,10 @@
 
 Generate a random number from te range [-50, +50]
 
+- seed it with the current time in epoch
+
+To generate a random number within a specific range, you calculate the range width by subtracting the minimum from the maximum, then add the minimum as an offset. This shifts the result into the desired range.
+
 ```golang
 package main
 

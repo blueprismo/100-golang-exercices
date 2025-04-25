@@ -1,5 +1,12 @@
 # Exercise: STRUCT
 
+In golang, there is no 'class' keyword to define an object for example, a parallel for classes in golang are structs.
+
+A struct is a typed collection of fields.
+It can hold any type, even other structs.
+You can associate methods for structs
+A struct that doesn't have a name is called an anonymous struct, you can see lots of them in [table-driven tests](https://go.dev/wiki/TableDrivenTests).
+
 Create a Hotel structure with:
 
 - numRooms int32
@@ -8,9 +15,10 @@ Create a Hotel structure with:
 
 Then assign a value to each of those attributes
 
-References:
+References / more info:
 https://go.dev/tour/moretypes/2
 https://www.w3schools.com/go/go_struct.php
+https://gobyexample.com/structs
 
 ```golang
 package main

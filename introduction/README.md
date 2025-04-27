@@ -42,7 +42,7 @@ Feel free to [install golang](https://go.dev/doc/install), fork the [100-golang-
 
 ## Note
 
-Please notice there are some exercises that are intended to have an execution failure, the important thing here is learning and have fun.
+Please notice there are some exercises that are intended to have an execution failure, the important thing here is learning.
 Feel free to contribute, comment, share your solutions and of course have lot of fun!
 
 Thanks a lot

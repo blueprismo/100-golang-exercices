@@ -1,5 +1,8 @@
 # Exercise: User input
 
+Here I will briefly explain the memory address of a variable.
+Variables are stored in-memory and they are
+
 - Using only the fmt package, ask a user for it's name and then for it's surname
 - Store it in 2 variables called "name" and "surname"
 - After user has entered the data, print it out

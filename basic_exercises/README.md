@@ -59,7 +59,9 @@ This book text is stored in a git repository, and ideally you should be able to 
 
 Github is an online platform to store your code. You can also store your code locally (without need of git) or in any other platform (Gitlab, bitbucket, azure, AWS codecommit, etc.)
 
-I personally love github, for it's wide community, the easy user experience and some of the most famous open source repositories are stored in there, like [linux](https://github.com/torvalds/linux),, [bitcoin](https://github.com/bitcoin/bitcoin), [kubernetes](https://github.com/kubernetes/kubernetes) and even the [go](https://github.com/golang/go) programming language itself!
+While writing code, a version control system is highly advised, so you can have states stored where your code is working as expected, like checkpoints.
+
+I personally love github, for it's wide community, the easy user experience and some of the most famous open source repositories are stored in there, like [linux](https://github.com/torvalds/linux), [bitcoin](https://github.com/bitcoin/bitcoin), [kubernetes](https://github.com/kubernetes/kubernetes) and even the [go](https://github.com/golang/go) programming language itself as a mirror.
 
 ### An IDE of your choice
 

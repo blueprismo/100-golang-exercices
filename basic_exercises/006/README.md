@@ -54,7 +54,7 @@ For example, to access the second position in the array, you would do so with `n
 
 Exercise: Create an array of 10 "int8" values, and fill those values from 0 to 9
 
-```golang
+```go
 package main
 
 import "fmt"
@@ -68,7 +68,7 @@ func main () {
 <details>
 <summary> Solution: </summary>
 
-```golang
+```go
 package main
 
 import "fmt"

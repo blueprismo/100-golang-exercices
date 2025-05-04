@@ -14,7 +14,7 @@ Exercise: With a single string variable named helloWorld, print only the first c
 
 - string[n] is how you should access the value, with n being the index number.
 
-```golang
+```go
 package main
 
 import "fmt"
@@ -30,7 +30,7 @@ func main () {
 <details>
 <summary> Solution: </summary>
 
-```golang
+```go
 package main
 
 import "fmt"

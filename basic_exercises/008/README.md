@@ -6,7 +6,7 @@ There is no need to initialize all the elements from an array, but remember that
 
 Exercise: Create an array of 5 strings, and initialize it's 2 first values with some random strings.
 
-```golang
+```go
 package main
 
 import "fmt"
@@ -20,7 +20,7 @@ func main () {
 <details>
 <summary> Solution: </summary>
 
-```golang
+```go
 package main
 
 import "fmt"

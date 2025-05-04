@@ -70,7 +70,7 @@ Exercise:
 - If the number is inbetween print: perfect
 - If the number is above 30 print : so hot
 
-```golang
+```go
 // Use if and a else if!
 package main
 
@@ -93,7 +93,7 @@ func main () {
 <details>
 <summary> Solution: </summary>
 
-```golang
+```go
 package main
 
 import "fmt"

@@ -33,7 +33,7 @@ Exercise: Iterate through all the array and add two (+2) to each value
 - Hint: The iterator variable can be used as an index to fetch all the elements of an array!
 - Tip: If you somehow create an infinite loop, hit `Control + C` to send a SIGINT signal to your program, forcing it to terminate the process, and therefore stop looping.
 
-```golang
+```go
 package main
 
 import "fmt"
@@ -49,7 +49,7 @@ func main () {
 <details>
 <summary> Solution: </summary>
 
-```golang
+```go
 package main
 
 import "fmt"

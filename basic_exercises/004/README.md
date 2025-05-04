@@ -12,7 +12,7 @@ Exercise: Concatenate two string variables and print it's result
 - One variable should be called "helloWorld" and the other "itsMeMario"
 - There should be a space between them
 
-```golang
+```go
 package main
 
 func main() {
@@ -25,7 +25,7 @@ func main() {
 <details>
 <summary> Solution: </summary>
 
-```golang
+```go
 package main
 
 import "fmt"

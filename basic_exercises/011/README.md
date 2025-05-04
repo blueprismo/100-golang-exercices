@@ -7,7 +7,7 @@ The blank identifier is represented with an underscore `_` and it acts as a plac
 
 A simple example in the range loop, we don't care about the values this time but we only want to know the index:
 
-```golang
+```go
 var arr = [4]int{1,5,6,10}
 
   for index, _ := range arr {
@@ -23,7 +23,7 @@ Exercise:
 - use range to print the values of the array
 - use the blank identifier variable to supress the index, DON'T show the index, just the values of the array!
 
-```golang
+```go
 package main
 
 import "fmt"
@@ -40,8 +40,7 @@ func main () {
 <details>
 <summary> Solution: </summary>
 
-```golang
-
+```go
 package main
 
 import "fmt"

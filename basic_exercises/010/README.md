@@ -18,7 +18,7 @@ for (init <= end) {
 
 Exercise: With a simple "for" loop, print the numbers from 30 to 50
 
-```golang
+```go
 package main
 
 import "fmt"
@@ -34,7 +34,7 @@ func main () {
 <details>
 <summary> Solution: </summary>
 
-```golang
+```go
 package main
 
 import "fmt"

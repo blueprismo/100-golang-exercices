@@ -14,7 +14,7 @@ For simplicity, we are not going to check if the input is a number or not, we ar
 - The function will print to the standard output if the number is even or odd.
 - That function will return a `bool` value.
 
-```golang
+```go
 package main
 
 import "fmt"
@@ -28,7 +28,7 @@ func main () {
 <details>
 <summary> Solution: </summary>
 
-```golang
+```go
 package main
 
 import "fmt"

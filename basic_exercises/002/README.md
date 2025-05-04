@@ -14,7 +14,7 @@ They comment multiple lines, they use the `/* <COMMENT> */` syntax.
 
 Exercise: Create a program that shows your name, address and also has some comments in it
 
-```golang
+```go
 package main
 
 import "fmt"
@@ -27,7 +27,7 @@ func main () {
 <details>
 <summary> Solution: </summary>
 
-```golang
+```go
 package main
 
 import "fmt"

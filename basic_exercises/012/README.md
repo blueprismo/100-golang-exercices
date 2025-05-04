@@ -12,7 +12,7 @@ for index, value := range <data_structure> {
 
 - Use range to print the values and index of the array
 
-```golang
+```go
 package main
 
 import "fmt"
@@ -28,7 +28,7 @@ func main () {
 <details>
 <summary> Solution: </summary>
 
-```golang
+```go
 package main
 
 import "fmt"

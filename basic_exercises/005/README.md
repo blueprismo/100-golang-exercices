@@ -20,7 +20,7 @@ Exercise: Print some verbs with their corresponding letter
 - Format verbs are followed by a '%' character.
 
 
-```golang
+```go
 
 package main
 
@@ -45,7 +45,7 @@ func main () {
 <details>
 <summary> Solution: </summary>
 
-```golang
+```go
 package main
 
 import "fmt"

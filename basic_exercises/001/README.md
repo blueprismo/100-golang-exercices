@@ -45,7 +45,7 @@ Exercise: Run a program that prints "Hello World!"
 - Run the program
 - Make it an executable
 
-```golang
+```go
 package main
 
 import "fmt"
@@ -58,7 +58,7 @@ func main () {
 <details>
 <summary> Solution: </summary>
 
-```golang
+```go
 package main
 
 import "fmt"

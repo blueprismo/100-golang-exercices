@@ -5,9 +5,17 @@
 A variable is an object that stores a value.
 
 For example, the variable `name` can store the "Elvis" name.
-The variable `number` can store 1,2,3
+The variable `number` can store 1, 20 or 500.
+The variable `isHuman` can store `true` or `false`.
 
 Variables in golang are statically-typed, meaning that once a variable type is defined, it can only store data of that type.
+
+The variable `name` of type `string` contains a string.
+The variable `number` of type `int` will contain an integer number.
+The variable `isHuman` of type `bool` will contain a boolean.
+And so on...
+
+Variables are stored in the memory of the computer, but we will talk later about how they are stored or referenced.
 
 Exercise: Create a program that puts the "Hello World!" string inside a string variable called "helloWorld"
 

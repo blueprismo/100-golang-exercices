@@ -1,21 +1,29 @@
-# Exercise: User input
+# Exercise: array index
 
-Here I will briefly explain the memory address of a variable.
-Variables are stored in-memory and they are
+A string variable is an array of tinier elements of type `char`.
 
-- Using only the fmt package, ask a user for it's name and then for it's surname
-- Store it in 2 variables called "name" and "surname"
-- After user has entered the data, print it out
+For example the word `TREE` is an array of 4 characters, each character will have an assigned index.
+The first element (with index 0) is the letter 'T', the second one (with index 1) is the letter 'R' and so on.
+
+```txt
+T - R - E - E
+0 - 1 - 2 - 3
+```
+
+Exercise: With a single string variable named helloWorld, print only the first character.
+
+- string[n] is how you should access the value, with n being the index number.
 
 ```golang
-// Tip: https://pkg.go.dev/fmt#hdr-Scanning
 package main
 
 import "fmt"
 
 func main () {
+	var helloWorld string
+	helloWorld = "Hello World!"
 	// Here goes your code
-	fmt.Printf("...")
+	fmt.Println()
 }
 ```
 
@@ -27,17 +35,16 @@ package main
 
 import "fmt"
 
-func main () {
-	// Here goes your code
-	var name, surname string
-	fmt.Println("Please enter your name")
-	fmt.Scanln(&name)
-	fmt.Println("Please enter your surname")
-	fmt.Scanln(&surname)
-
-	fmt.Printf("Your name is: " + name + " " + surname)
+func main() {
+	// Creating new variable called helloWorld
+	var helloWorld string
+	helloWorld = "Hello World!"
+	// Print the first letter
+	fmt.Println(helloWorld[0])
 }
 
+// To run the program:
+// - go run solution.go
 ```
 
 </details>

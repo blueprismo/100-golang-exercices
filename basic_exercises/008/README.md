@@ -1,7 +1,10 @@
-# Exercise: User input
+# Exercise: Arrays II
 
-- Get a number from the console and check if it's odd
-- You can create another function or do it everything in the main func
+Arrays are FIXED in size, meaning that they cannot grow bigger than it's original value. This also implies that operations with arrays should be done carefully as we may hit out of bounds errors. Dynamically sized arrays are called slices, which we will learn from them soon.
+
+There is no need to initialize all the elements from an array, but remember that the remaining elements will contain it's zero value
+
+Exercise: Create an array of 5 strings, and initialize it's 2 first values with some random strings.
 
 ```golang
 package main
@@ -23,29 +26,12 @@ package main
 import "fmt"
 
 func main () {
-	var number int32
-	fmt.Println("Enter a number: ")
-	fmt.Scanln(&number)
+	var arr = [5]string{"thomas","phillip"}
 
-	iseven(number)
-
-	/*
-	Possible solution without an additional function
-	if (number % 2 == 0) { 
-		fmt.Println("It's even")
-	} else { 
-		fmt.Println("It's odd")
-	}*/
-}
-
-func iseven(number int32) bool {
-	if (number % 2 == 0) {
-		fmt.Println("is even")
-		return true
-	}  else { 
-		fmt.Println("is odd")
-		return false
-	}
+	// Print the array
+	for i := 0; i < len(arr); i++ {
+        fmt.Printf("Element number %d: %v \n", i, arr[i])
+    }
 }
 ```
 

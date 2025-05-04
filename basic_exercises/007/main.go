@@ -1,9 +1,6 @@
-// Exercise: User input
-// Using only the fmt package, ask a user for it's name and then for it's surname
-// Store it in 2 variables called "name" and "surname"
-// After user has entered the data, print it out
-
-// Tip: https://pkg.go.dev/fmt#hdr-Scanning
+// Exercise: With a single string variable, use access the first character with the string index
+// This is only valid with ASCII characters, and the print value will be the ASCII number
+// string[n] is how you should access the value
 
 package main
 
@@ -11,5 +8,6 @@ import "fmt"
 
 func main () {
 	// Here goes your code
-	fmt.Printf("...")
+	var string1 string
+	// ...
 }

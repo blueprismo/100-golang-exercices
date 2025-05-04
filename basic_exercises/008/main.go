@@ -1,6 +1,4 @@
-// Exercise: User input
-// Get a number from the console and check if it's odd
-// You can create another function or do it everything in the main func :) 
+// Create an array of 5 strings, and initialize it's 2 first values with some random names
 
 package main
 

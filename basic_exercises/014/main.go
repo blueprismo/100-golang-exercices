@@ -1,19 +1,15 @@
-// Exercise: Conditional
-// Check if the range of a number is between 20 and 30
-// If the number is below 20 print : too cold
-// If the number is inbetween print: perfect
-// If the number is above 30 print : so hot
+// Exercise: User input
+// Using only the fmt package, ask a user for it's name and then for it's surname
+// Store it in 2 variables called "name" and "surname"
+// After user has entered the data, print it out
 
-// Use if and a else if!
+// Tip: https://pkg.go.dev/fmt#hdr-Scanning
 
 package main
 
 import "fmt"
 
 func main () {
-	fmt.Println("Give me a number")
-	var number int
-	fmt.Scanln(&number)
 	// Here goes your code
-	
+	fmt.Printf("...")
 }

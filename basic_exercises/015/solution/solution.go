@@ -1,18 +1,34 @@
-// Exercise: while loop
-// There is no "while" keyword in GOlang!
-// With a for loop, print the numbers from 30 to 50
+// Exercise: User input
+// Get a number from the console and check if it's odd
 
+// You can create another function or do it everything in the main func :) 
 
 package main
 
 import "fmt"
 
 func main () {
-	init := 30
-	end := 50
-	
-	for (init <= end) {
-		fmt.Println(init)
-		init++
+	var number int32
+	fmt.Println("Enter a number: ")
+	fmt.Scanln(&number)
+
+	iseven(number)
+
+	/*
+	Possible solution without an additional function
+	if (number % 2 == 0) { 
+		fmt.Println("It's even")
+	} else { 
+		fmt.Println("It's odd")
+	}*/
+}
+
+func iseven(number int32) bool {
+	if (number % 2 == 0) {
+		fmt.Println("is even")
+		return true
+	}  else { 
+		fmt.Println("is odd")
+		return false
 	}
 }

@@ -1,15 +1,12 @@
-// Exercise: while loop
-// There is no "while" keyword in GOlang!
-// With a for loop, print the numbers from 30 to 50
-
+// Exercise: User input
+// Get a number from the console and check if it's odd
+// You can create another function or do it everything in the main func :) 
 
 package main
 
 import "fmt"
 
 func main () {
-	init := 30
-	end  := 50
 	// Here goes your code
-	
+	fmt.Printf("...")
 }

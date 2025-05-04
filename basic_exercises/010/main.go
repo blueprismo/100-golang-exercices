@@ -1,10 +1,15 @@
-// Create an array of 5 strings, and initialize it's 2 first values with some random names
+// Exercise: while loop
+// There is no "while" keyword in GOlang!
+// With a for loop, print the numbers from 30 to 50
+
 
 package main
 
 import "fmt"
 
 func main () {
+	init := 30
+	end  := 50
 	// Here goes your code
-	fmt.Printf("...")
+	
 }

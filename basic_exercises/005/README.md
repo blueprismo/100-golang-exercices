@@ -1,30 +1,44 @@
-# Exercise: array index
+# Exercise: Format Verbs
 
-A string variable is an array of tinier elements of type 'character'.
+Go provides an easy way to format verbs into your output. This is called formatting verbs.
+You tell the program how do you want the variable to be expressed, according to it's variable type.
 
-For example the word `TREE` is an array of 4 characters, each character will have an assigned index.
-The first element (with index 0) is the letter 'T', the second one (with index 1) is the letter 'R' and so on.
+The formatting verb acts like a placeholder for the variable that you pass into it, here are two examples
 
-```txt
-T - R - E - E
-0 - 1 - 2 - 3
-```
+The verb `%v` prints the value in it's default format
+`fmt.Printf("my string variable contains %v", dog_name)`
+Will print "my string variable contains Scooby"
 
+The verb `%T` prints the variable type
+`fmt.Printf("my string variable is of type %T", dog_name)`
+Will print "my string variable is of type string"
 
-Exercise: With a single string variable named helloWorld, print only the first character 'H'
+You can check all the format verbs in the documentation: https://pkg.go.dev/fmt#hdr-Printing
 
-- string[n] is how you should access the value, with n being the index number.
+Exercise: Print some verbs with their corresponding letter
+
+- Format verbs are followed by a '%' character.
+
 
 ```golang
+
 package main
 
 import "fmt"
 
 func main () {
-	var helloWorld string
-	helloWorld = "Hello World!"
+	var name string
+	var age	int64
+	var legal bool
+	var weight float32
+
+	name = "Anna"
+	age  = 29
+	legal = false
+	weight = 70.12
+
 	// Here goes your code
-	fmt.Println()
+	fmt.Printf("My name is __, I am __ years old and it's __ that I can drive a car, my pet weights __ kilograms", , , , )
 }
 ```
 
@@ -36,16 +50,20 @@ package main
 
 import "fmt"
 
-func main() {
-	// Creating new variable called helloWorld
-	var helloWorld string
-	helloWorld = "Hello World!"
-	// Print the first letter
-	fmt.Println(helloWorld[0])
-}
+func main () {
+	// Here goes your code
+	var name string
+	var age	int64
+	var legal bool
+	var weight float32
 
-// To run the program:
-// - go run solution.go
+	name = "Anna"
+	age  = 20
+	legal = true
+	weight = 70.12
+
+	fmt.Printf("My name is %s, I am %d years old and it's %t that I can drive a car, my pet weights %f kilograms",name, age, legal, weight)
+}
 ```
 
 </details>

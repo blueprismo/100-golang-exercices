@@ -1,6 +1,15 @@
 # Exercise: RANGE
 
-- Range is used to iterate over data structures
+Ranges are an idiomatic way for iterating over data structures, it is widely used to iterate over arrays, maps or slices.
+
+The syntax for range is:
+
+```go
+for index, value := range <data_structure> {
+	// index and value are populated automatically for each element of the data structure.
+}
+```
+
 - Use range to print the values and index of the array
 
 ```golang

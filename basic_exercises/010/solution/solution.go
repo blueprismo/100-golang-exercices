@@ -1,15 +1,18 @@
-// Exercise: Arrays
-// Create an array of 10 "int8" values, in it's initialization, fill those values from 0 to 9
+// Exercise: while loop
+// There is no "while" keyword in GOlang!
+// With a for loop, print the numbers from 30 to 50
+
 
 package main
 
 import "fmt"
 
 func main () {
-	var arr = [5]string{"thomas","phillip"}
-
-	// Print the array
-	for i := 0; i < len(arr); i++ {
-        fmt.Println(arr[i])
-    }
+	init := 30
+	end := 50
+	
+	for (init <= end) {
+		fmt.Println(init)
+		init++
+	}
 }

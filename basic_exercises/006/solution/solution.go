@@ -1,24 +1,29 @@
-// Exercise: Learn FORMAT STRING!! Print some verbs with their corresponding letter
-// Format string / verbs are followed by a '%' character.
-// Example: fmt.Printf("Hello, my name is %s", name) // will substitute %s for the content in the variable name called "name"
-
-// Tip: You can head into the documentation for reference: https://pkg.go.dev/fmt#hdr-Printing
+// Exercise: Arrays
+// Create an array of 10 "int8" values, in it's initialization, fill those values from 0 to 9
 
 package main
 
 import "fmt"
 
 func main () {
-	// Here goes your code
-	var name string
-	var age	int64
-	var legal bool
-	var weight float32
+	var arr = new([10]int)
+	/*
+	Simple but handcrafted solution
+	arr[0] = 0
+	arr[1] = 1
+	arr[2] = 2
+	arr[3] = 3
+	arr[4] = 4
+	arr[5] = 5
+	arr[6] = 6
+	arr[7] = 7
+	arr[8] = 8
+	arr[9] = 9
+	*/
 
-	name = "Anna"
-	age  = 20
-	legal = true
-	weight = 70.12
-
-	fmt.Printf("My name is %s, I am %d years old and it's %t that I can drive a car, my pet weights %f kilograms",name, age, legal, weight)
+	// Another solution :) 
+	for i := 0; i < len(arr); i++ {
+		arr[i] = i
+        fmt.Println(arr[i])
+    }
 }

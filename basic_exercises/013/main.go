@@ -1,14 +1,19 @@
-// Exercise: RANGE and Blank identifier
-// use range to print the values of the array
-// use the blank identifier variable to supress the index, DON'T show the index, just the values of the array!
+// Exercise: Conditional
+// Check if the range of a number is between 20 and 30
+// If the number is below 20 print : too cold
+// If the number is inbetween print: perfect
+// If the number is above 30 print : so hot
+
+// Use if and a else if!
 
 package main
 
 import "fmt"
 
 func main () {
-	// initialized array of 10 int values [1..10]
-	var arr = [10]int{1,2,3,4,5,6,7,8,9,10}
+	fmt.Println("Give me a number")
+	var number int
+	fmt.Scanln(&number)
 	// Here goes your code
 	
 }

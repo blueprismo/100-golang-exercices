@@ -34,7 +34,7 @@ In this exercise you will learn to import packages. You can import public librar
 
 To import a library, you just need to type `import <library_name>`, for example `import fmt` outside the main function.
 
-*The fmt library implements formatted Input/Output functions, for more info: [https://pkg.go.dev/fmt*](https://pkg.go.dev/fmt*)
+*The fmt library implements formatted Input/Output functions, for more info: [https://pkg.go.dev/fmt](https://pkg.go.dev/fmt)*
 
 You can use the [fmt.Println()](https://pkg.go.dev/fmt#Println) function to print a string into the standard output.
 

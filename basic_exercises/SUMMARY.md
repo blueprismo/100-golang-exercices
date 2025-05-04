@@ -1,5 +1,6 @@
 # Table of contents
 
+* [Intro](README.md)
 * [Exercise: Hello World!](001/README.md)
 * [Exercise: Comments](002/README.md)
 * [Exercise: Variables](003/README.md)

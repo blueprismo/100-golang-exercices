@@ -16,9 +16,9 @@ Exercise: Concatenate two string variables and print it's result
 package main
 
 func main() {
-	// Here goes your code
-	var helloWorld, itsMeMario string
-	// ...
+  // Here goes your code
+  var helloWorld, itsMeMario string
+  // ...
 }
 ```
 
@@ -31,12 +31,12 @@ package main
 import "fmt"
 
 func main() {
-	// Creating new variable called helloWorld
-	var helloWorld, itsMeMario string
-	helloWorld = "Hello World!"
-	itsMeMario = "It's a me, Mario"
-	// Print the variable
-	fmt.Println(helloWorld + " " + itsMeMario)
+  // Creating new variable called helloWorld
+  var helloWorld, itsMeMario string
+  helloWorld = "Hello World!"
+  itsMeMario = "It's a me, Mario"
+  // Print the variable
+  fmt.Println(helloWorld + " " + itsMeMario)
 }
 
 // To run the program:

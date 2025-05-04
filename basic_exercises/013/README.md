@@ -26,29 +26,29 @@ var speed=50
 
 // Single condition, nothing happens if it is not satisfied.
 if (speed > 60 ){
-	fmt.Printf("Only fast animals will see this message")
+  fmt.Printf("Only fast animals will see this message")
 }
 // Output: 
 
 // Single condition, if not satisfied falls into the `else` block.
 if (speed < 50){
-	fmt.Printf("Going slow")
+  fmt.Printf("Going slow")
 } else {
-	fmt.Printf("You are a fast animal!")
+  fmt.Printf("You are a fast animal!")
 }
 // Output: You are a fast animal!
 
 // Multiple conditions
 if (speed < 20){
-	fmt.Printf("Going slow")
+  fmt.Printf("Going slow")
 } else if ( speed >= 20 && speed < 30 ) {
-	fmt.Printf("You are fast")
+  fmt.Printf("You are fast")
 } else if ( speed >= 30 && speed < 40 ) {
-	fmt.Printf("You are super fast")
+  fmt.Printf("You are super fast")
 } else if ( speed >= 40 && speed <= 80 ) {
-	fmt.Printf("You are mega super fast")
+  fmt.Printf("You are mega super fast")
 } else {
-	fmt.Printf("You are the fastest of 'em all!")
+  fmt.Printf("You are the fastest of 'em all!")
 }
 // Output: You are mega super fast
 ```
@@ -77,16 +77,16 @@ package main
 import "fmt"
 
 func main () {
-	var number int
-	fmt.Scanln(&number)
-	
-	if (number < 20){
-		fmt.Println("Too cold!")
-	} else if (number > 20 && number < 30) {
-		fmt.Println("perfect")
-	} else {
-		fmt.Println("so hot!")
-	}
+  var number int
+  fmt.Scanln(&number)
+
+  if (number < 20){
+    fmt.Println("Too cold!")
+  } else if (number > 20 && number < 30) {
+    fmt.Println("perfect")
+  } else {
+    fmt.Println("so hot!")
+  }
 }
 ```
 
@@ -99,17 +99,17 @@ package main
 import "fmt"
 
 func main () {
-	var number int
-	fmt.Scanln(&number)
-	
-	if (number < 20){
-		fmt.Println("Too cold!")
-	} else if (number > 20 && number < 30) {
-		fmt.Println("perfect")
-	} else {
-		fmt.Println("so hot!")
-	}
-	
+  var number int
+  fmt.Scanln(&number)
+
+  if (number < 20){
+    fmt.Println("Too cold!")
+  } else if (number > 20 && number < 30) {
+    fmt.Println("perfect")
+  } else {
+    fmt.Println("so hot!")
+  }
+
 }
 ```
 

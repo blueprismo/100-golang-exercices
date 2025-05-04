@@ -1,4 +1,4 @@
-# Exercise: Arrays II
+# Exercise: Arrays III
 
 Arrays are FIXED in size, meaning that they cannot grow bigger than it's original value. This also implies that operations with arrays should be done carefully as we may hit out of bounds errors. Dynamically sized arrays are called slices, which we will learn from them soon.
 
@@ -12,8 +12,8 @@ package main
 import "fmt"
 
 func main () {
-	// Here goes your code
-	fmt.Printf("...")
+  // Here goes your code
+  fmt.Printf("...")
 }
 ```
 
@@ -26,12 +26,12 @@ package main
 import "fmt"
 
 func main () {
-	var arr = [5]string{"thomas","phillip"}
+  var arr = [5]string{"thomas","phillip"}
 
-	// Print the array
-	for i := 0; i < len(arr); i++ {
-        fmt.Printf("Element number %d: %v \n", i, arr[i])
-    }
+  // Print the array
+  for i := 0; i < len(arr); i++ {
+    fmt.Printf("Element number %d: %v \n", i, arr[i])
+  }
 }
 ```
 

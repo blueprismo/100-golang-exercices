@@ -1,4 +1,4 @@
-# Exercise: User input II
+# Exercise: Recap
 
 This is the final exercise from the basic_exercises block. You will put in practice what you've learned.
 
@@ -20,8 +20,8 @@ package main
 import "fmt"
 
 func main () {
-	// Here goes your code
-	fmt.Printf("...")
+  // Here goes your code
+  fmt.Printf("...")
 }
 ```
 
@@ -34,21 +34,21 @@ package main
 import "fmt"
 
 func main () {
-	var number int32
-	fmt.Println("Enter a number: ")
-	fmt.Scanln(&number)
+  var number int32
+  fmt.Println("Enter a number: ")
+  fmt.Scanln(&number)
 
-	isEven(number)
+  isEven(number)
 }
 
 func isEven(number int32) bool {
-	if (number % 2 == 0) {
-		fmt.Println("is even")
-		return true
-	}  else { 
-		fmt.Println("is odd")
-		return false
-	}
+  if (number % 2 == 0) {
+    fmt.Println("is even")
+    return true
+  }  else { 
+    fmt.Println("is odd")
+    return false
+  }
 }
 ```
 

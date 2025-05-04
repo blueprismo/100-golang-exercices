@@ -11,9 +11,9 @@ A simple example of this loop that prints the numbers from 0 to 100
 init := 0
 end := 100
 for (init <= end) {
-	fmt.Println(init)
-	init++
-	}
+  fmt.Println(init)
+  init++
+  }
 ```
 
 Exercise: With a simple "for" loop, print the numbers from 30 to 50
@@ -24,10 +24,10 @@ package main
 import "fmt"
 
 func main () {
-	init := 30
-	end  := 50
-	// Here goes your code
-	
+  init := 30
+  end  := 50
+  // Here goes your code
+  
 }
 ```
 
@@ -40,13 +40,13 @@ package main
 import "fmt"
 
 func main () {
-	init := 30
-	end := 50
-	
-	for (init <= end) {
-		fmt.Println(init)
-		init++
-	}
+  init := 30
+  end := 50
+  
+  for (init <= end) {
+    fmt.Println(init)
+    init++
+  }
 }
 ```
 

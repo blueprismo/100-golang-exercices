@@ -15,8 +15,8 @@ var iterator = 0
 
 // for <iterator variable initial state>; <condition for loop>; <iterator alteration>
 for iterator ; iterator < 3 ; iterator++ {
-	fmt.Println(iterator)
-	fmt.Println("I am inside the loop!") 
+  fmt.Println(iterator)
+  fmt.Println("I am inside the loop!") 
 }
 ```
 
@@ -39,9 +39,9 @@ package main
 import "fmt"
 
 func main () {
-	// initialized array of 10 int values [0..9]
-	var arr = [10]int{0,1,2,3,4,5,6,7,8,9}
-	// Here goes your code
+  // initialized array of 10 int values [0..9]
+  var arr = [10]int{0,1,2,3,4,5,6,7,8,9}
+  // Here goes your code
 
 }
 ```
@@ -55,12 +55,11 @@ package main
 import "fmt"
 
 func main () {
-	
-	var arr = [10]int{0,1,2,3,4,5,6,7,8,9}
-	for i := 0; i < len(arr); i++ {
-		arr[i] = arr[i] + 2
-	}
-	fmt.Printf("%v", arr)
+  var arr = [10]int{0,1,2,3,4,5,6,7,8,9}
+  for i := 0; i < len(arr); i++ {
+    arr[i] = arr[i] + 2
+  }
+  fmt.Printf("%v", arr)
 }
 ```
 

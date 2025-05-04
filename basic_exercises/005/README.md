@@ -27,18 +27,18 @@ package main
 import "fmt"
 
 func main () {
-	var name string
-	var age	int64
-	var legal bool
-	var weight float32
+  var name string
+  var age int64
+  var legal bool
+  var weight float32
 
-	name = "Anna"
-	age  = 29
-	legal = false
-	weight = 70.12
+  name = "Anna"
+  age  = 29
+  legal = false
+  weight = 70.12
 
-	// Here goes your code
-	fmt.Printf("My name is __, I am __ years old and it's __ that I can drive a car, my pet weights __ kilograms", , , , )
+  // Here goes your code
+  fmt.Printf("My name is __, I am __ years old and it's __ that I can drive a car, my pet weights __ kilograms", , , , )
 }
 ```
 
@@ -51,18 +51,18 @@ package main
 import "fmt"
 
 func main () {
-	// Here goes your code
-	var name string
-	var age	int64
-	var legal bool
-	var weight float32
+  // Here goes your code
+  var name string
+  var age	int64
+  var legal bool
+  var weight float32
 
-	name = "Anna"
-	age  = 20
-	legal = true
-	weight = 70.12
+  name = "Anna"
+  age  = 20
+  legal = true
+  weight = 70.12
 
-	fmt.Printf("My name is %s, I am %d years old and it's %t that I can drive a car, my pet weights %f kilograms",name, age, legal, weight)
+  fmt.Printf("My name is %s, I am %d years old and it's %t that I can drive a car, my pet weights %f kilograms",name, age, legal, weight)
 }
 ```
 

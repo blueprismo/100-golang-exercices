@@ -1,4 +1,4 @@
-# Exercise: array index
+# Exercise: Arrays II
 
 A string variable is an array of tinier elements of type `char`.
 
@@ -20,10 +20,10 @@ package main
 import "fmt"
 
 func main () {
-	var helloWorld string
-	helloWorld = "Hello World!"
-	// Here goes your code
-	fmt.Println()
+  var helloWorld string
+  helloWorld = "Hello World!"
+  // Here goes your code
+  fmt.Println()
 }
 ```
 
@@ -36,11 +36,11 @@ package main
 import "fmt"
 
 func main() {
-	// Creating new variable called helloWorld
-	var helloWorld string
-	helloWorld = "Hello World!"
-	// Print the first letter
-	fmt.Println(helloWorld[0])
+  // Creating new variable called helloWorld
+  var helloWorld string
+  helloWorld = "Hello World!"
+  // Print the first letter
+  fmt.Println(helloWorld[0])
 }
 
 // To run the program:

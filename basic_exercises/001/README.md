@@ -9,7 +9,7 @@ According to the [golang specification](https://go.dev/ref/spec#Program_executio
 
 For simplicity's sake, the minimum amount of code you will need to run your code is:
 
-```go
+```golang
 package main
 
 func main () {

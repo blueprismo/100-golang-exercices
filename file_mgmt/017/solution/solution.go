@@ -4,27 +4,16 @@
 // beware: You should run this code where the read file is, or reference it!
 package main
 
-import "fmt"
-import "io"
-import "os"
+import (
+	"log"
+  	"fmt"
+	"os"
+)
 
-func main () {
-  // Open the file
-	file, err := os.Open("read.txt")
+func main() {
+	data, err := os.ReadFile("/tmp/test.txt")
 	if err != nil {
-		fmt.Println("Error opening file:", err)
-		return
+		log.Fatal(err)
 	}
-	defer file.Close()
-
-	// Read the entire file content using io.ReadAll
-	content, err := io.ReadAll(file)
-	if err != nil {
-		fmt.Println("Error reading file:", err)
-		return
-	}
-
-	// Print the content
-	fmt.Println(string(content))
-
+	fmt.Println(string(data)) // or os.Stdout.Write(data)
 }

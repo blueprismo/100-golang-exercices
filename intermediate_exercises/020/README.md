@@ -1,13 +1,67 @@
-# Exercise: STRUCT
+# Exercise: Structs
 
-In golang, there is no 'class' keyword to define an object for example, a parallel for classes in golang are structs.
+## What are structs?
+
+In golang, there is no 'class' keyword to define an object, in golang the concept to create a collection of members of different data types into a single variable are called structs (structures).
 
 A struct is a typed collection of fields.
 It can hold any type, even other structs.
-You can associate methods for structs
+An example of a struct:
+
+```go
+type Person struct {
+  name string
+  age int
+  job string
+  salary int
+}
+```
+
+You can see that the Person object contains 4 members: `name`,`age`,`job` and `salary`.
+The members can be from different data types.
+
+## Accessing struct members
+
+To access any member of a structure, use the dot operator (.) between the structure variable name and the structure member:
+
+```go
+func main() {
+  var pers1 Person
+
+  // Pers1 specification
+  pers1.name = "Hege"
+  pers1.age = 45
+  pers1.job = "Teacher"
+  pers1.salary = 1000
+
+  // Access and print Pers1 info
+  fmt.Println("Name: ", pers1.name) // Output: 'Name: Hege'
+  fmt.Println("Age: ", pers1.age)
+  fmt.Println("Job: ", pers1.job)
+  fmt.Println("Salary: ", pers1.salary)
+}
+```
+
+## Anonymous structs
+
 A struct that doesn't have a name is called an anonymous struct, you can see lots of them in [table-driven tests](https://go.dev/wiki/TableDrivenTests).
 
-Create a Hotel structure with:
+Anonymous structs are defined without a name and therefore cannot be referenced elsewhere in the code.
+To create an anonymous struct, just instantiate the instance immediately using a second pair of brackets after declaring the type:
+
+```go
+newCar := struct {
+    make    string
+    model   string
+    mileage int
+}{
+    make:    "Ford",
+    model:   "Taurus",
+    mileage: 200000,
+}
+```
+
+Exercise: Create a structure named `Hotel` with three members `numRooms`,`streetName` and `hasPool`
 
 - numRooms int32
 - streetName string
@@ -15,12 +69,12 @@ Create a Hotel structure with:
 
 Then assign a value to each of those attributes
 
-References / more info:
-https://go.dev/tour/moretypes/2
-https://www.w3schools.com/go/go_struct.php
-https://gobyexample.com/structs
+References:
+[https://go.dev/tour/moretypes/2](https://go.dev/tour/moretypes/2)
+[https://www.w3schools.com/go/go_struct.php](https://www.w3schools.com/go/go_struct.php)
+[https://gobyexample.com/structs](https://gobyexample.com/structs)
 
-```golang
+```go
 package main
 
 import "fmt"
@@ -39,7 +93,7 @@ func main () {
 <details>
 <summary> Solution: </summary>
 
-```golang
+```go
 package main
 
 import "fmt"

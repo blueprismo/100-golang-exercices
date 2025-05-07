@@ -1,7 +1,7 @@
 # Exercise: SLICES
 
-Slices are arrays that are dynamically-sized.
-Slices store multiple values of the same type in a single variable.
+Slices are arrays that are dynamically-sized, meaning they have no fixed size!
+Like arrays, they store multiple values of the same type in a single variable.
 
 ```go
 // ARRAY
@@ -20,14 +20,14 @@ In the snippet above we can see that the difference in the declaration between a
 Create a slice of 5 integers from an already existing slice called 'myset'
 (This is called reslicing)
 
-```golang
+```go
 package main
 
 import "fmt"
 
 func main () {
     var myset = []int32{0,1,2,3,4,5,6,7,8,9}
-	// Your code goes here
+    // Your code goes here
 
 }
 ```
@@ -35,16 +35,16 @@ func main () {
 <details>
 <summary> Solution: </summary>
 
-```golang
+```go
 package main
 
 import "fmt"
 
 func main () {
     var myset = []int32{0,1,2,3,4,5,6,7,8,9}
-	// Your code goes here
-	var slice = myset[0:5]
-	fmt.Println("Slice :", slice)
+    // Your code goes here
+    var slice = myset[0:5]
+    fmt.Println("Slice :", slice)
 }
 ```
 

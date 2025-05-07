@@ -28,15 +28,14 @@ fmt.Println(*p) // read i through the pointer p
 - Declare the address of the var "x"
 - Save the address of the var "x" in the pointer variable
 
-```golang
+```go
 package main
 
 import "fmt"
 
 func main () {
     var x int32 = 5
-	// Your code goes here
-
+    // Your code goes here
 }
 ```
 
@@ -50,12 +49,12 @@ import "fmt"
 
 func main () {
     var x int32 = 5
-	// Your code goes here
-	var pointerX *int32 = &x
+    // Your code goes here
+    var pointerX *int32 = &x
 
-	fmt.Println("Value of x: %d", x)
-	fmt.Println("Memory address of x: %d", &x)
-	fmt.Println("Pointer value: %d", pointerX)
+    fmt.Println("Value of x: %d", x)
+    fmt.Println("Memory address of x: %d", &x)
+    fmt.Println("Pointer value: %d", pointerX)
 }
 ```
 

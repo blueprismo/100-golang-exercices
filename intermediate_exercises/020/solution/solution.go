@@ -25,3 +25,5 @@ func main () {
   myHotel.hasPool    = true
   fmt.Printf("My hotel in %v has %d rooms and it's %t that has a Pool", myHotel.streetName, myHotel.numRooms, myHotel.hasPool)
 }
+
+

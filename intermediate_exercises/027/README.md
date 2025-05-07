@@ -1,7 +1,7 @@
 # Exercise: SLICES II
 
-Slices are arrays that are dynamically-sized.
-Slices store multiple values of the same type in a single variable.
+Slices are arrays that are dynamically-sized, meaning they have no fixed size!
+Like arrays, they store multiple values of the same type in a single variable.
 
 ```go
 // ARRAY
@@ -22,7 +22,7 @@ Create a slice of 5 integers from an already existing slice called 'myset'
 
 Create a slice from the quote in the variable "mystring"
 
-```golang
+```go
 package main
 
 import "fmt"
@@ -37,7 +37,7 @@ func main () {
 <details>
 <summary> Solution: </summary>
 
-```golang
+```go
 package main
 
 import "fmt"

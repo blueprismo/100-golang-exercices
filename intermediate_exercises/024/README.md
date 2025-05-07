@@ -28,7 +28,7 @@ Exercise:
 
 Print the memory address of a variable
 
-```golang
+```go
 package main
 
 import "fmt"
@@ -38,13 +38,12 @@ func main () {
   // Your code goes here
   
 }
-
 ```
 
 <details>
 <summary> Solution: </summary>
 
-```golang
+```go
 package main
 
 import "fmt"

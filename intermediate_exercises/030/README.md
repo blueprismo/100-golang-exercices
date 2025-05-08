@@ -14,11 +14,11 @@ package main
 import "fmt"
   
 func main() {
-	// 0 arguments 
+  // 0 arguments 
     sayHello()
-	// 1 argument
+  // 1 argument
     sayHello("Rahul")
-	// 4 arguments
+  // 4 arguments
     sayHello("Mohit", "Rahul", "Rohit", "Johny")
 }
   
@@ -32,20 +32,20 @@ func sayHello(names ...string) {
 
 Create a variadic function that sums all it's numbers passed as arguments.
 
-```golang
+```go
 package main
 
 import "fmt"
 
 // Complete the function signature
 func sum() int {
-	total := 0
+  total := 0
     // Your code goes here
 }
 
 func main () {
-	// Your code goes here
-	
+  // Your code goes here
+  
 }
 
 ```
@@ -59,17 +59,17 @@ package main
 import "fmt"
 
 func sum(numbers ...int) int {
-	total := 0
-	for _,num := range numbers{
-		total += num
-	}
-	fmt.Println(total)
-	return total
+  total := 0
+  for _,num := range numbers{
+    total += num
+  }
+  fmt.Println(total)
+  return total
 }
 
 func main () {
-	// Your code goes here
-	sum(2,3,4,5,6,7)
+  // Your code goes here
+  sum(2,3,4,5,6,7)
 }
 ```
 

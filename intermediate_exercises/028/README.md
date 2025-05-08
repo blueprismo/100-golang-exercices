@@ -16,32 +16,32 @@ Example:
 
 ```go
 func subtract(x,y int) int { // function signature
-	return x - y // function body, will return to the function caller the operation of substracting x - y.
+    return x - y // function body, will return to the function caller the operation of substracting x - y.
 }
 
 func main() {
-	result := subtract(5,4) // the function is called and it's return value assigned to the `result` variable
-	fmt.Println(result) // the result will be 1
+    result := subtract(5,4) // the function is called and it's return value assigned to the `result` variable
+    fmt.Println(result) // the result will be 1
 }
 ```
 
 Create a function that sums 2 numbers, then call that function from another function that sums another number.
 
-```golang
+```go
 package main
 
 import "fmt"
 
 func sum() int {
-	
+    
 }
 
 func secondsum() int {
-	
+    
 }
 
 func main () {
-	// Your code goes here
+  // Your code goes here
 
 }
 
@@ -56,21 +56,20 @@ package main
 import "fmt"
 
 func sum(x int, y int) int {
-	return x + y
+    return x + y
 }
 
 func secondsum(x, y, z int) int {
-	return sum(x,y) + z 
+    return sum(x,y) + z 
 }
 
 func main () {
-	// Your code goes here
-	var result int
-	result = secondsum(2,3,5)
+    // Your code goes here
+    var result int
+    result = secondsum(2,3,5)
 
-	fmt.Println(result)
+    fmt.Println(result)
 }
-
 ```
 
 </details>

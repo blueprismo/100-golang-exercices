@@ -4,9 +4,8 @@ A pointer is a variable that stores the memory address of another variable or ob
 It's like a street address, pointing to the location where data is stored in the computer's memory. Pointers are useful for indirect memory access and memory manipulation.
 
 The type `*T` is a pointer to a `T` value. Its zero value is `nil`.
-`var p *int`
 
-The `&` operator generates a pointer to its operand, in other words: To access the memory address of a variable you can prepend that variable with the `&` sign.
+The `&` operator generates a pointer to its operand, in other words: To access the memory address of a variable you can prepend that variable with the `&` sign. See the following snippet as an example:
 
 ```go
 // declare a pointer "p" of type int
@@ -24,9 +23,7 @@ fmt.Println(*p) // read i through the pointer p
 // This is known as "dereferencing" or "indirecting".
 ```
 
-Exercise:
-
-Print the memory address of a variable
+Exercise: Print the memory address of a variable
 
 ```go
 package main

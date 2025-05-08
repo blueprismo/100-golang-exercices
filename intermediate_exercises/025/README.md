@@ -24,6 +24,8 @@ fmt.Println(*p) // read i through the pointer p
 // This is known as "dereferencing" or "indirecting".
 ```
 
+Exercise:
+
 - Declare a pointer variable of type int32
 - Declare the address of the var "x"
 - Save the address of the var "x" in the pointer variable
@@ -42,7 +44,7 @@ func main () {
 <details>
 <summary> Solution: </summary>
 
-```golang
+```go
 package main
 
 import "fmt"

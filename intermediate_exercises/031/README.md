@@ -11,32 +11,36 @@ To put an example, the factorial of a number, is the number multiplied by n-1 un
 
 ```go
 func factorial(n int) int {
-	if n == 0 { // base case
-		return 1
-	} else {
-		return n * factorial(n-1) // function calling itself with the argument decreasing.
-	}
+  if n == 0 { // base case
+    return 1
+  } else {
+    return n * factorial(n-1) // function calling itself with the argument decreasing.
+  }
 }
 ```
+
+As we can see, the function calls itself but with the argument decreasing at every function call. This will drive our function argument closer to the base case after each call. The call stack would look like this:
+
+![recursive](recursive.png)
 
 Exercise:
 
 Create a recursive function that returns the sequence of fibonacci up until the nth number
 
-```golang
+```go
 package main
 
 import "fmt"
 
 // Complete the function signature
 func fibonacci() int {
-	// Your code goes here
+  // Your code goes here
 
 }
 
 func main () {
-	// Your code goes here
-	
+  // Your code goes here
+  
 }
 
 ```
@@ -50,15 +54,15 @@ package main
 import "fmt"
 
 func fibonacci(x int) int{
-	if (x <= 1) { // base case
-		return x
-	}
-	return fibonacci(x-1) + fibonacci(x-2) // recursive function
+  if (x <= 1) { // base case
+    return x
+  }
+  return fibonacci(x-1) + fibonacci(x-2) // recursive function
 }
 
 func main () {
-	// Your code goes here
-	fmt.Println(fibonacci(9))
+  // Your code goes here
+  fmt.Println(fibonacci(9))
 }
 ```
 

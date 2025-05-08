@@ -7,7 +7,7 @@ Like arrays, they store multiple values of the same type in a single variable.
 // ARRAY
 // Example of an array containing 5 integer numbers.
 var array = [5]int32{0,1,2,3,4}
-array = append(array, 3) // ❌ Compile-time error: first argument to append must be a slice
+array = append(array, 3) // Compile-time error: first argument to append must be a slice
 
 // SLICE
 // Example of a slice containing 5 integer numbers
@@ -17,10 +17,7 @@ slice = append(slice, 3) // ✅ OK
 
 In the snippet above we can see that the difference in the declaration between array and slice is the absence of the size.
 
-Create a slice of 5 integers from an already existing slice called 'myset'
-(This is called reslicing)
-
-Create a slice from the quote in the variable "mystring"
+Exercise: Create a slice from the quote in the variable "mystring"
 
 ```go
 package main

@@ -8,6 +8,10 @@ func convertCaps (name string) (string, string) {
   transformed := strings.ToUpper(name)
   return name, transformed
 }
+
+name, upperName := convertCaps("john")
+fmt.Printf("original: %v, transformed: %v", name, upperName) 
+// Output: original: john, transformed: JOHN
 ```
 
 Exercise:

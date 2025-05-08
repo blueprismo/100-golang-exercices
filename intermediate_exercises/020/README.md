@@ -69,7 +69,7 @@ Exercise: Create a structure named `Hotel` with three members `numRooms`,`street
 
 Then assign a value to each of those attributes
 
-References:
+References:  
 [https://go.dev/tour/moretypes/2](https://go.dev/tour/moretypes/2)  
 [https://www.w3schools.com/go/go_struct.php](https://www.w3schools.com/go/go_struct.php)  
 [https://gobyexample.com/structs](https://gobyexample.com/structs)  

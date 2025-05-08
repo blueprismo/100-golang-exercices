@@ -21,7 +21,7 @@ func factorial(n int) int {
 
 As we can see, the function calls itself but with the argument decreasing at every function call. This will drive our function argument closer to the base case after each call. The call stack would look like this:
 
-![recursive](recursive.png)
+![recursive case reaching base case](recursive.png)
 
 Exercise:
 

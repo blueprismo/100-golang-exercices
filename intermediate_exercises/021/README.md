@@ -25,7 +25,7 @@ Exercise: Create a map of ints to strings
 `2` should map to `B`  
 `3` should map to `C`  
 
-Reference: https://gobyexample.com/maps
+Reference: [https://gobyexample.com/maps](https://gobyexample.com/maps)
 
 ```go
 package main

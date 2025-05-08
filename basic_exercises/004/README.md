@@ -1,7 +1,10 @@
 # Exercise: Two string variables
 
 You can operate with strings. For instance we can build a quote by adding 2 string variables together:
-`fmt.Println("My pet is called " + dog_name + ", and he loves" +  dog_favourite_food)`
+
+```go
+fmt.Println("My pet is called " + dog_name + ", and he loves" +  dog_favourite_food)
+```
 
 There are multiple [conventions](https://en.wikipedia.org/wiki/Naming_convention_(programming)#Go) for variable naming, like `thisVariable` (camelCase), `this_variable` (snake_case), `this-variable` (kebab-case)...
 

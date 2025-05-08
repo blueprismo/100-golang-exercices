@@ -10,10 +10,9 @@ A simple example in the range loop, we don't care about the values this time but
 ```go
 var arr = [4]int{1,5,6,10}
 
-  for index, _ := range arr {
-    fmt.Print(index, "\n")
-  }
-
+for index, _ := range arr {
+  fmt.Print(index, "\n")
+}
 ```
 
 A very common use case for the blank identifier is in exception handling, when we just want to know if a variable returned an error code but not it's content or value, a blank identifier is often used.
@@ -32,9 +31,7 @@ func main () {
   // initialized array of 10 int values [1..10]
   var arr = [10]int{1,2,3,4,5,6,7,8,9,10}
   // Here goes your code
-
 }
-
 ```
 
 <details>

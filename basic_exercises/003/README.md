@@ -17,9 +17,16 @@ And so on...
 
 Variables are stored in the memory of the computer, but we will talk later about how they are stored or referenced.
 
-Exercise: Create a program that puts the "Hello World!" string inside a string variable called "helloWorld"
+## The shorthand :=
 
-```golang
+The `:=` syntax is shorthand for declaring and initializing a variable, e.g. for `var f string = "apple"` is equivalent to `f := "apple"`.  
+This syntax is only available inside functions.  
+
+Exercise: Create a program that puts the `Hello World!` string inside a string variable called `helloWorld`
+
+Tip: String values are always wrapped in double-quotes `"hello, I am a string!"`
+
+```go
 package main
 
 import "fmt"

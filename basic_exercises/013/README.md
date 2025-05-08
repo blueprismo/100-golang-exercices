@@ -4,7 +4,7 @@ Conditionals are another fundamental topic in programming and the building block
 Conditional statements are used to perform different actions based on different conditions.
 
 A condition can be either `true` or `false`, and depending on that result it will run a unique execution flow, like in this image:
-![if flow](if-then.png)
+![if-then chart](if-then.png)
 
 Go supports the usual comparison operators from mathematics:
 Less than `<`

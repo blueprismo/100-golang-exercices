@@ -45,14 +45,14 @@ In this case, we can call `Abs()` into the `Vertex` "v".
 Exercise: Write a list of 5 countries to a file
 Tip: "\n" can be used as a newline in a string.
 
-```golang
+```go
 package main
 
 import "os"
 
 
 func main () {
-    // Here goes your code
+  // Here goes your code
 
 }
 ```
@@ -60,7 +60,7 @@ func main () {
 <details>
 <summary> Solution: </summary>
 
-```golang
+```go
 package main
 
 import "os"

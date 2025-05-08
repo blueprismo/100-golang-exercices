@@ -54,7 +54,7 @@ Now that you know function signatures, you can quickly go over the documentation
 Exercise: Check if a file exists
 Tip: use the [os.Stat()](https://pkg.go.dev/os#Stat) function
 
-```golang
+```go
 package main
 
 // import ""
@@ -67,19 +67,19 @@ func main () {
 <details>
 <summary> Solution: </summary>
 
-```golang
+```go
 package main
 
 import "fmt"
 import "os"
 
 func main () {
-	// Here goes your code
-	if _, err := os.Stat("file-exists.go"); err == nil {
-		fmt.Printf("File exists\n");  
-	  } else {
-		fmt.Printf("File does not exist\n");  
-	  }
+  // Here goes your code
+  if _, err := os.Stat("file-exists.go"); err == nil {
+    fmt.Printf("File exists\n");  
+    } else {
+    fmt.Printf("File does not exist\n");  
+    }
 }
 ```
 

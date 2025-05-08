@@ -11,7 +11,7 @@ func Rename(oldpath, newpath string) error
 
 Exercise: Rename an existing file from an old name to a new name.
 
-```golang
+```go
 package main
 
 import "os"

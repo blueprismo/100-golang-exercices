@@ -41,13 +41,12 @@ import (
 )
 
 func main() {
-	data, err := os.ReadFile()
-	if err != nil {
-		log.Fatal(err)
-	}
-	fmt.Println()
+  data, err := os.ReadFile()
+  if err != nil {
+    log.Fatal(err)
+  }
+  fmt.Println()
 }
-
 ```
 
 <details>
@@ -57,16 +56,16 @@ func main() {
 package main
 
 import (
-	"log"
+  "log"
   "fmt"
 )
 
 func main() {
-	data, err := os.ReadFile("/tmp/test.txt")
-	if err != nil {
-		log.Fatal(err)
-	}
-	fmt.Println(string(data)) // or os.Stdout.Write(data)
+  data, err := os.ReadFile("/tmp/test.txt")
+  if err != nil {
+    log.Fatal(err)
+  }
+  fmt.Println(string(data)) // or os.Stdout.Write(data)
 }
 ```
 

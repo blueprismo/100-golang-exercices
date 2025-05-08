@@ -70,9 +70,9 @@ Exercise: Create a structure named `Hotel` with three members `numRooms`,`street
 Then assign a value to each of those attributes
 
 References:
-[https://go.dev/tour/moretypes/2](https://go.dev/tour/moretypes/2)
-[https://www.w3schools.com/go/go_struct.php](https://www.w3schools.com/go/go_struct.php)
-[https://gobyexample.com/structs](https://gobyexample.com/structs)
+[https://go.dev/tour/moretypes/2](https://go.dev/tour/moretypes/2)  
+[https://www.w3schools.com/go/go_struct.php](https://www.w3schools.com/go/go_struct.php)  
+[https://gobyexample.com/structs](https://gobyexample.com/structs)  
 
 ```go
 package main
@@ -80,13 +80,13 @@ package main
 import "fmt"
 
 type Hotel struct {
-	// Your code goes here
+  // Your code goes here
 
 }
 
 func main () {
-	var myHotel Hotel
-	// Your code goes here
+  var myHotel Hotel
+  // Your code goes here
 }
 ```
 

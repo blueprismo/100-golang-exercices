@@ -21,9 +21,9 @@ b := map[string]int{"Oslo": 1, "Bergen": 2, "Trondheim": 3, "Stavanger": 4}
 
 Exercise: Create a map of ints to strings
 
-`1` should map to `A`
-`2` should map to `B`
-`3` should map to `C`
+`1` should map to `A`  
+`2` should map to `B`  
+`3` should map to `C`  
 
 Reference: https://gobyexample.com/maps
 

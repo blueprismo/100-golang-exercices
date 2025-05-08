@@ -26,8 +26,8 @@ func main() {
 }
 ```
 
-`greeting` stores the string "hello".
-`&greeting` gives us the memory address where that string is stored.
+`greeting` stores the string "hello".  
+`&greeting` gives us the memory address where that string is stored.  
 
 Sometimes, you want to work with the memory address directly and this is where the concept of [pointers](https://en.wikipedia.org/wiki/Pointer_(computer_programming)) comes in. A pointer is just a variable that stores a memory address.
 

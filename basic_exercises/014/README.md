@@ -60,7 +60,7 @@ Exercise: Using only the fmt package, ask a user for it's name and then for it's
 - Store it in 2 variables called "name" and "surname"
 - After user has entered the data, print it to the standard output
 
-```golang
+```go
 package main
 
 import "fmt"

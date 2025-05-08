@@ -1,7 +1,5 @@
 # 100 exercices to improve with GOLANG
 
-## Intro
-
 I hadn't find any good repository with 100 exercices for the GO Programming language, and as It's a beautiful language, I will create it myself :smile: feel free to contribute and use it!
 
 The following exercises assume a fairly basic level of object oriented programming, but it is also OK if you don't have it.

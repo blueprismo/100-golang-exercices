@@ -4,10 +4,12 @@ Comments in code are for explanatory purposes, if some other programmer is worki
 
 ## There are two types of comments in golang
 
-Inline comments:
+### Inline comments
+
 They only comment a single line, in order to comment a line in go, the double slash `//` is added at the beginning of the line.
 
-Multi-line comments or block comments:
+### Multi-line comments or block comments
+
 They comment multiple lines, they use the `/* <COMMENT> */` syntax.
 
 - Use the fmt package

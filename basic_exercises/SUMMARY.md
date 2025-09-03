@@ -1,0 +1,18 @@
+# Table of contents
+
+* [Intro](README.md)
+* [Exercise: Hello World!](001/README.md)
+* [Exercise: Comments](002/README.md)
+* [Exercise: Variables](003/README.md)
+* [Exercise: Two variables](004/README.md)
+* [Exercise: Format Verbs](005/README.md)
+* [Exercise: Arrays](006/README.md)
+* [Exercise: Arrays II](007/README.md)
+* [Exercise: Arrays III](008/README.md)
+* [Exercise: For loops](009/README.md)
+* [Exercise: While loop](010/README.md)
+* [Exercise: Range and blank identifier](011/README.md)
+* [Exercise: Range](012/README.md)
+* [Exercise: Conditionals](013/README.md)
+* [Exercise: Reference and pointers](014/README.md)
+* [Exercise: Recap](015/README.md)

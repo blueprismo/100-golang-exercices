@@ -26,6 +26,7 @@ Each folder will contain one exercise and one solution. There are multiple ways 
 
 ```bash
 ├── n-th_exercise       # <- exercise number
+│    ├── README.md      # <- exercise description and info + tips (for the book!)
 │    ├── main.go
 │    ├── [.env]
 │    └── solution       # <- solution folder

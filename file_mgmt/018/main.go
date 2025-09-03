@@ -5,7 +5,6 @@ package main
 
 import "os"
 
-
 func main () {
 	// Here goes your code
 	

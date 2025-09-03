@@ -7,7 +7,7 @@ import "os"
 
 func main () {
 	// Here goes your code
-  file, err := os.Create("create-file.txt")
+  file, err := os.Create("contries.txt")
 
   if err != nil {
     return

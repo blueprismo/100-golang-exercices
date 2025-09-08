@@ -1,6 +1,6 @@
 # File Management (16-19)
 
-* [Exercise 016](016/README.md)
-* [Exercise 017](017/README.md)
-* [Exercise 018](018/README.md)
-* [Exercise 019](019/README.md)
+* [Check if a file exists](016/README.md)
+* [Read a file](017/README.md)
+* [Write to a file](018/README.md)
+* [Rename a file](019/README.md)

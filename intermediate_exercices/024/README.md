@@ -17,9 +17,10 @@ i := 42
 p = &i
 
 // The * operator denotes the pointer's underlying value.
-fmt.Println(*p) // read i through the pointer p
+fmt.Println(*p) // read i through the pointer p, prints: 42
 *p = 21         // set i through the pointer p
 
+fmt.Println(i) // prints: 21
 // This is known as "dereferencing" or "indirecting".
 ```
 
@@ -33,7 +34,7 @@ import "fmt"
 func main () {
   var x int = 5
   // Your code goes here
-  
+
 }
 ```
 

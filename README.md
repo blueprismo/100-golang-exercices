@@ -30,7 +30,7 @@ Each folder will contain one exercise and one solution. There are multiple ways 
 │    ├── main.go
 │    ├── [.env]
 │    └── solution       # <- solution folder
-│       └── solution.go      
+│       └── solution.go
 ├── go.mod
 └── go.sum
 ```
@@ -96,4 +96,3 @@ Please notice there are some exercises that are intended to have an execution fa
 Feel free to contribute, comment, share your solutions and of course have lot of fun!
 
 Thanks a lot
-

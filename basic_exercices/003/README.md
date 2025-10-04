@@ -19,8 +19,8 @@ Variables are stored in the memory of the computer, but we will talk later about
 
 ## The shorthand :=
 
-The `:=` syntax is shorthand for declaring and initializing a variable, e.g. for `var f string = "apple"` is equivalent to `f := "apple"`.  
-This syntax is only available inside functions.  
+The `:=` syntax is shorthand for declaring and initializing a variable, e.g. for `var f string = "apple"` is equivalent to `f := "apple"`.
+This syntax is only available inside functions, you can read more about it [here](https://go.dev/ref/spec#Short_variable_declarations).
 
 Exercise: Create a program that puts the `Hello World!` string inside a string variable called `helloWorld`
 

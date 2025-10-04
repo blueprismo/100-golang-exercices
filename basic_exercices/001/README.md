@@ -17,9 +17,9 @@ func main () {
 }
 ```
 
-The code above executes nothing.  
-`package main` just states the go compiler is a standalone executable.  
-`func main () {}` is the entrypoint of the program, go will run this function when you execute the compiled binary.  
+The code above executes nothing.
+`package main` just states the go compiler is a standalone executable.
+`func main () {}` is the entrypoint of the program, go will run this function when you execute the compiled binary.
 
 ## Executing your code
 
@@ -64,7 +64,7 @@ package main
 import "fmt"
 
 func main () {
-	fmt.Println("Hello World!")
+  fmt.Println("Hello World!")
 }
 
 // To run the program:

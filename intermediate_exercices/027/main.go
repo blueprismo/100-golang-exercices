@@ -1,13 +1,14 @@
 // Exercise: SLICES
 
-// Create a slice (substring) from a string that contains at least 4 words
+// Exercise: From the slice `myslice`, create a new slice containing only the middle 3 elements.
+// Hint: use slice[start:end] syntax
 
 package main
 
 import "fmt"
 
 func main () {
-    var mystring = "I like how the rain sofly touches the window when I'm reading inside"
-	// Your code goes here
-	
+  var slice = []int32{0,1,2,3,4}
+  // Your code goes here
+
 }

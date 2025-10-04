@@ -6,9 +6,10 @@ package main
 
 import "fmt"
 
-func main () {
-    var mystring = "I like how the rain sofly touches the window when I'm reading inside"
+func main() {
+	var slice = []int32{0, 1, 2, 3, 4}
 	// Your code goes here
-	var substring = mystring[2:19]
-	fmt.Println(substring)
+	// remember the slice index begins at number 0!
+	new_slice := slice[1:3]
+	fmt.Printf("substring:%v, type: %T", new_slice, new_slice)
 }

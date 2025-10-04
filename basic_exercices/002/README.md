@@ -35,8 +35,8 @@ package main
 import "fmt"
 
 func main () {
-    /* 
-    This is a 
+    /*
+    This is a
     multiline
     comment
     */

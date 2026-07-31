@@ -4,10 +4,8 @@
 
 package main
 
-import "fmt"
 
 func main () {
 	// Here goes your code
-	var string1 string
 	// ...
 }

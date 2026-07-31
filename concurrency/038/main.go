@@ -6,9 +6,9 @@
 
 package main
 
-import "fmt"
 
 func main () {
-	var c chan string = make(chan string, 1)
-	
+	// Create a channel (uncomment this)
+	// var c chan string = make(chan string, 1)
+	// Your code goes here
 }

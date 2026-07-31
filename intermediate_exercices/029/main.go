@@ -6,10 +6,9 @@
 
 package main
 
-import "fmt"
 
 func operation(x, y int) (int, int) {
-	
+	return 0, 0 // a stub, should be changed
 }
 
 func main () {

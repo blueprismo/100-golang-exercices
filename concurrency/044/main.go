@@ -1,15 +1,14 @@
-// Exercise: Channels - Range (unbuffered)
+// Exercise: Multiple Goroutines with Channels
 
-// In this exercise we will use the range keyword to iterate over a UNbuffered (sync) channel.
-// Create a unbuffered channel (type int)
+
 // Create a goroutine that:
-// Has an infinite loop -> prints the current second and waits for a second
-// Use the range iterator in the main function to see each second
+// 1. Has an infinite loop that sends the current second to a channel
+// 2. Waits one second between each send
+// 3. Use `range` in main to receive and print each second value
+// 4. Observe how data flows in real-time from the goroutine
 
 package main
 
-import "fmt"
-import "time"
 
 func second(c chan int){
 	

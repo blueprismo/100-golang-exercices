@@ -5,10 +5,9 @@
 
 package main
 
-import "fmt"
 
 func main () {
-  var slice = []int32{0,1,2,3,4}
+//   var slice = []int32{0,1,2,3,4}
   // Your code goes here
 
 }

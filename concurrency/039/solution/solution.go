@@ -45,5 +45,7 @@ func main () {
 			fmt.Println(name3)
 		}
 	}
-	fmt.Println("Goroutines finished.") // You shouldn't see this message as the goroutines run forever!
+
+	// unreachable code
+	// fmt.Println("Goroutines finished.") // You shouldn't see this message as the goroutines run forever!
 }

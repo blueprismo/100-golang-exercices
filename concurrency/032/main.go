@@ -7,7 +7,6 @@
 package main
 
 import "fmt"
-import "time"
 
 func main() {
 	// call our go routine here

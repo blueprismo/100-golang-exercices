@@ -8,8 +8,6 @@
 
 package main
 
-import "fmt"
-import "time"
 
 func second(c chan int){
 	

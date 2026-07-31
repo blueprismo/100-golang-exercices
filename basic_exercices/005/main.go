@@ -19,6 +19,9 @@ func main () {
 	legal = false
 	weight = 70.12
 
+	// Usual print that you used in 003 basic_exercices/003/README.md
+	fmt.Println(name, age, legal, weight)
+
 	// Here goes your code
 	fmt.Printf("...")
 }

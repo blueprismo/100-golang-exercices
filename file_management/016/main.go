@@ -3,8 +3,6 @@
 
 package main
 
-import "fmt"
-import "os"
 
 func main () {
 	// Here goes your code

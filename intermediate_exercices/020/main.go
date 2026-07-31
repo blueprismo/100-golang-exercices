@@ -8,14 +8,13 @@
 
 package main
 
-import "fmt"
-
 type Hotel struct {
 	// Your code goes here
 
 }
 
 func main () {
-	var myHotel Hotel
+	// creating a variable of the custom struct Hotel (uncomment this)
+	// var myHotel Hotel
 	// Your code goes here
 }

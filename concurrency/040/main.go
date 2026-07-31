@@ -8,8 +8,6 @@
 
 package main
 
-import "fmt"
-import "time"
 
 func timeout(c chan string){
 	for {
@@ -26,5 +24,6 @@ func main () {
 		
 		}
 	}
-	fmt.Println("Goroutines finished.") // You shouldn't see this message as the goroutines run forever!
+	// Try to uncomment this. You shouldn't see this message as the goroutines run forever!
+	// fmt.Println("Goroutines finished.") 
 }

@@ -1,4 +1,4 @@
-# Exercise 44: Range Over Unbuffered Channels
+# Exercise 44: Multiple Goroutines with Channels
 
 ## Range with Unbuffered Channels
 

@@ -15,22 +15,22 @@
 
 package main
 
-import "fmt"
-import "time"
 
 func name(c chan string, name string){
 	
 }
 
 func main () {
-	var c1 chan string = make(chan string)
-	var c2 chan string = make(chan string)
-	var c3 chan string = make(chan string)
+	// channels you will be needing
+	// var c1 chan string = make(chan string)
+	// var c2 chan string = make(chan string)
+	// var c3 chan string = make(chan string)
 
 	for {
 		select {
 		
 		}
 	}
-	fmt.Println("Goroutines finished.") // You shouldn't see this message as the goroutines run forever!
+	// Try to uncomment this. You shouldn't see this message as the goroutines run forever!
+	// fmt.Println("Goroutines finished.") 
 }

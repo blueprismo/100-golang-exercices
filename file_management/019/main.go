@@ -3,12 +3,13 @@
 
 package main
 
-import "os"
 
 
 func main () {
-	var src, dest string
-	src = "name1.txt"
+	// Start with this
+	// var src, dest string
+	// src = "name1.txt"
+	
 	// Here goes your code
 
 }

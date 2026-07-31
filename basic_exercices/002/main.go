@@ -3,6 +3,7 @@
 
 package main
 
+// You will be needing this package in order to use Println function. Uncomment this
 // import "fmt"
 
 func main () {

@@ -20,7 +20,8 @@ func task2(){
 }
 
 func main () {
-	var done chan bool = make(chan bool,1)	
+	// Create a channel (uncomment this)
+	//var done chan bool = make(chan bool,1)	
 	fmt.Println("I am running in the main thread concurrently")
 	// Your code goes here
 	

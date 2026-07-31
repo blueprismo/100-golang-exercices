@@ -13,7 +13,7 @@ func main () {
 	// Your code goes here
 	var pointerX *int32 = &x
 
-	fmt.Println("Value of x: %d", x)
-	fmt.Println("Memory address of x: %d", &x)
-	fmt.Println("Pointer value: %d", pointerX)
+	fmt.Printf("Value of x: %d", x)
+	fmt.Printf("Memory address of x: %d", &x)
+	fmt.Printf("Pointer value: %d", pointerX)
 }

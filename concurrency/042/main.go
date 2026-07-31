@@ -9,10 +9,10 @@
 
 package main
 
-import "fmt"
 
 
 func main () {
-	var c chan int = make(chan int,5)
+	// channel you will be needing
+	// var c chan int = make(chan int,5)
 
 }

@@ -8,7 +8,7 @@ package main
 import "fmt"
 
 func fibonacci(x int) int{
-	
+	return x // a stub
 }
 
 func main () {

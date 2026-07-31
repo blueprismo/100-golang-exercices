@@ -6,6 +6,5 @@ package main
 
 func main() {
 	// Here goes your code
-	var string1, string2 string
 	// ...
 }

@@ -6,10 +6,10 @@
 
 package main
 
-import "fmt"
 
 func main () {
-    var x int32 = 5
+	// Declare a variable (uncomment this)
+    // var x int32 = 5
 	// Your code goes here
 	
 }
